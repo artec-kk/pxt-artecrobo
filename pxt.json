@@ -1,0 +1,11 @@
+{
+    "name": "artecrobo",
+    "description": "Control ArtecRobo.",
+    "icon": "./static/libs/artecrobo.png",
+    "files": [
+        "artecrobo.ts"
+    ],
+    "dependencies": {
+        "core": "file:../core"
+    }
+}
