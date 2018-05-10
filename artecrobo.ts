@@ -35,8 +35,8 @@ enum connectorServoMotor {
 namespace artecrobo {
 
 	/* spped initial value */
-	let speedM1 = 100;
-	let speedM2 = 100;
+	let speedM1 = 1023;
+	let speedM2 = 1023;
 	let state = DCmotion.Brake;
 	// Move DC motor
 	//% blockId=move_dc_motor
