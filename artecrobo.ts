@@ -46,11 +46,11 @@ namespace artecrobo {
 			case DCmotion.Forward:
 				/*
 					Move Forward
-					M1:P6 = speed, P12 = 0
+					M1:P8 = speed, P12 = 0
 					M2:P0 = speed, P16 = 0
 				*/
 				if (connector == connectorDCMotor.M1) {
-					pins.analogWritePin(AnalogPin.P6, speedM1);
+					pins.analogWritePin(AnalogPin.P8, speedM1);
 					pins.digitalWritePin(DigitalPin.P12, 0);
 				} else {
 					pins.analogWritePin(AnalogPin.P0, speedM2);
@@ -60,11 +60,11 @@ namespace artecrobo {
 			case DCmotion.Backward:
 				/*
 					Move Backward
-					M1:P6 = 0, P12 = speeed
+					M1:P8 = 0, P12 = speeed
 					M2:P0 = 0, P16 = speeed
 				*/
 				if (connector == connectorDCMotor.M1) {
-					pins.digitalWritePin(DigitalPin.P6, 0);
+					pins.digitalWritePin(DigitalPin.P8, 0);
 					pins.analogWritePin(AnalogPin.P12, speedM1);
 				} else {
 					pins.digitalWritePin(DigitalPin.P0, 0);
@@ -74,11 +74,11 @@ namespace artecrobo {
 			case DCmotion.Brake:
 				/*
 					Brake
-					M1:P6 = 1, P12 = 1
+					M1:P8 = 1, P12 = 1
 					M2:P0 = 1, P16 = 1
 				*/
 				if (connector == connectorDCMotor.M1) {
-					pins.digitalWritePin(DigitalPin.P6, 1);
+					pins.digitalWritePin(DigitalPin.P8, 1);
 					pins.digitalWritePin(DigitalPin.P12, 1);
 				} else {
 					pins.digitalWritePin(DigitalPin.P0, 1);
@@ -88,11 +88,11 @@ namespace artecrobo {
 			case DCmotion.Coast:
 				/*
 					Coast
-					M1:P6 = 0, P12 = 0
+					M1:P8 = 0, P12 = 0
 					M2:P0 = 0, P16 = 0
 				*/
 				if (connector == connectorDCMotor.M1) {
-					pins.digitalWritePin(DigitalPin.P6, 0);
+					pins.digitalWritePin(DigitalPin.P8, 0);
 					pins.digitalWritePin(DigitalPin.P12, 0);
 				} else {
 					pins.digitalWritePin(DigitalPin.P0, 0);
