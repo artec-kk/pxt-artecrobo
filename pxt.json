@@ -1,11 +1,14 @@
 {
-    "name": "artecrobo",
+    "name": "ArtecRobo",
     "description": "Control ArtecRobo.",
-    "icon": "./static/libs/artecrobo.png",
+	"license": "MIT",
     "files": [
         "artecrobo.ts"
     ],
+    "testFiles": [
+        "test-artecrobo.ts"
+    ],
     "dependencies": {
-        "core": "file:../core"
+        "core": "*"
     }
 }

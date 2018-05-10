@@ -1,15 +1,31 @@
 /**
  * Types of DC motor control
  */
-enum motion {
-    //% block=banana
-    Forward = 0,
-    //% block=pineapple
-    Backward = 1,
-    //% block=coconut
-    Stop = 2,
-    //% block=coconut
-    Release= 3
+enum DCmotion {
+	//% block= Forward
+	Forward,
+	//% block= Backward
+	Backward,
+	//% block= Stop
+	Brake,
+	//% block= Release
+	Coast
+}
+
+enum connectorDCMotor {
+	//% block= M1
+	M1,
+	//% block= M2
+	M2,
+}
+
+enum connectorServoMotor {
+	//% block= P13
+	P13,
+	//% block= P14
+	P14,
+	//% block= P15
+	P15
 }
 
 /**
@@ -17,62 +33,79 @@ enum motion {
  */
 //% weight=70 icon="\uf1db" color=#EC7505
 namespace artecrobo {
-    // Move DC motor
-    export function moveDCMotor(string: connector, string: motion): void {
-		/*
-			Move Forward
-			M1:P6 = 1, P12 = 0
-			M1:P0 = 1, P16 = 0
 
-			Move Backward
-			M1:P6 = 0, P12 = 1
-			M1:P0 = 0, P16 = 1
+	/* spped initial value */
+	let speedM1 = 0;
+	let speedM2 = 0;
+	// Move DC motor
+	export function moveDCMotor(connector: connectorDCMotor, motion: DCmotion): void {
+		switch(motion) {
+			case DCmotion.Forward:
+				/*
+					Move Forward
+					M1:P6 = speed, P12 = 0
+					M1:P0 = speed, P16 = 0
+				*/
+				if (connector == connectorDCMotor.M1) {
+					pins.analogWritePin(AnalogPin.P6, speedM1);
+					pins.digitalWritePin(DigitalPin.P12, 0);
+				} else {
+					pins.analogWritePin(AnalogPin.P0, speedM2);
+					pins.digitalWritePin(DigitalPin.P16, 0);
+				}
+				break;
+			case DCmotion.Backward:
+				/*
+					Move Backward
+					M1:P6 = 0, P12 = speeed
+					M1:P0 = 0, P16 = speeed
+				*/
+				if (connector == connectorDCMotor.M1) {
+					pins.digitalWritePin(DigitalPin.P6, 0);
+					pins.analogWritePin(AnalogPin.P12, speedM1);
+				} else {
+					pins.digitalWritePin(DigitalPin.P0, 0);
+					pins.analogWritePin(AnalogPin.P16, speedM2);
+				}
+				break;
+			case DCmotion.Brake:
+				/*
+					Brake
+					M1:P6 = 1, P12 = 1
+					M1:P0 = 1, P16 = 1
+				*/
+				if (connector == connectorDCMotor.M1) {
+					pins.digitalWritePin(DigitalPin.P6, 1);
+					pins.digitalWritePin(DigitalPin.P12, 1);
+				} else {
+					pins.digitalWritePin(DigitalPin.P0, 1);
+					pins.digitalWritePin(DigitalPin.P16, 1);
+				}
+				break;
+			case DCmotion.Coast:
+				/*
+					Coast
+					M1:P6 = 0, P12 = 0
+					M1:P0 = 0, P16 = 0
+				*/
+				if (connector == connectorDCMotor.M1) {
+					pins.digitalWritePin(DigitalPin.P6, 0);
+					pins.digitalWritePin(DigitalPin.P12, 0);
+				} else {
+					pins.digitalWritePin(DigitalPin.P0, 0);
+					pins.digitalWritePin(DigitalPin.P16, 0);
+				}
+				break;
+		}
+	}
 
-			Stop
-			M1:P6 = 1, P12 = 1
-			M1:P0 = 1, P16 = 1
-
-			Release
-			M1:P6 = 0, P12 = 0
-			M1:P0 = 0, P16 = 0
-		*/
-    	var array: M1[] = ["P6", "P12"];
-    	var array: M2[] = ["P0", "P16"];
-    	/* Forward, Backward, Stop, Release*/
-    	var array:control[][] = [[1,0], [0,1], [1,1], [0,0]];
-
-    	var motionCode = -1;
-    	switch(motion) {
-    		case "Forward":
-    			motionCode = 0;
-    			break;
-    		case "Backward":
-    			motionCode = 1;
-    			break;
-    		case "Stop":
-    			motionCode = 2;
-    			break;
-    		case "Release":
-    			motionCode = 3;
-    			break;
-    	}
-    	if (motionCode < 0 ) return;
-    	if (connector = "M1") {
-			digitalWritePin(M1[0], control[motionCode][0]);
-			digitalWritePin(M1[1], control[motionCode][1]);
-    	} else {
-			digitalWritePin(M2[0], control[motionCode][0]);
-			digitalWritePin(M2[1], control[motionCode][1]);
-    	}
-    }
-
-    // Move DC motor
-    export function setSpeedDCMotor(string: pin, int: speed): void {
+	// Move DC motor
+	export function setSpeedDCMotor(string: pin, speed: number): void {
 		digitalWritePin(name: DigitalPin, value: number);
-    }
+	}
 
-    // Sync servo motor
-    export function moveServoMotorSync(string: pin, int: speed): void {
-		digitalWritePin(name: DigitalPin, value: number);
-    }
+	// Sync servo motor
+	// export function moveServoMotorSync(string: pin, int: speed): void {
+	// 	digitalWritePin(name: DigitalPin, value: number);
+	// }
 }
