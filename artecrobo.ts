@@ -39,7 +39,7 @@ namespace artecrobo {
 	let speedM2 = 0;
 	// Move DC motor
 	//% blockId=move_dc_motor
-	//% block="DCモーターを %v を %v にする"
+	//% block="DCモーターを %connector を %motion にする"
 	export function moveDCMotor(connector: connectorDCMotor, motion: DCmotion): void {
 		switch(motion) {
 			case DCmotion.Forward:
@@ -102,7 +102,7 @@ namespace artecrobo {
 	}
 
 	//% blockId=set_speed_dc_motor
-	//% block="DCモーターの速さを %v にする"
+	//% block="DCモーター %string の速さを %speed にする"
 	export function setSpeedDCMotor(string: pin, speed: number): void {
 		digitalWritePin(name: DigitalPin, value: number);
 	}
