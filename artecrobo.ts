@@ -16,7 +16,7 @@ enum connectorDCMotor {
 	//% block= M1
 	M1,
 	//% block= M2
-	M2,
+	M2
 }
 
 enum connectorServoMotor {
@@ -39,7 +39,7 @@ namespace artecrobo {
 	let speedM2 = 0;
 	// Move DC motor
 	//% blockId=move_dc_motor
-	//% block="DCモーター %connector を %motion にする"
+	//% block="DCモーター %connector|を %motion|にする"
 	export function moveDCMotor(connector: connectorDCMotor, motion: DCmotion): void {
 		switch(motion) {
 			case DCmotion.Forward:
