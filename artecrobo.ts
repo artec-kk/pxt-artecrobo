@@ -35,8 +35,8 @@ enum connectorServoMotor {
 namespace artecrobo {
 
 	/* spped initial value */
-	let speedM1 = 0;
-	let speedM2 = 0;
+	let speedM1 = 100;
+	let speedM2 = 100;
 	// Move DC motor
 	//% blockId=move_dc_motor
 	//% block="DCモーター %connector|を %motion|にする"
