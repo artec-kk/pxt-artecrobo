@@ -31,7 +31,7 @@ enum connectorServoMotor {
 /**
  * ArtecRobo control package
  */
-//% color=190 weight=100 icon="hess board icon" block="ArtecRobo"
+//% color=190 weight=100 icon="chess board icon" block="ArtecRobo"
 namespace artecrobo {
 
 	/* spped initial value */
