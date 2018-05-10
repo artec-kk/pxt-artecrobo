@@ -37,6 +37,7 @@ namespace artecrobo {
 	/* spped initial value */
 	let speedM1 = 100;
 	let speedM2 = 100;
+	let state = DCmotion.Brake;
 	// Move DC motor
 	//% blockId=move_dc_motor
 	//% block="DCモーター %connector|を %motion|にする"
@@ -46,7 +47,7 @@ namespace artecrobo {
 				/*
 					Move Forward
 					M1:P6 = speed, P12 = 0
-					M1:P0 = speed, P16 = 0
+					M2:P0 = speed, P16 = 0
 				*/
 				if (connector == connectorDCMotor.M1) {
 					pins.analogWritePin(AnalogPin.P6, speedM1);
@@ -60,7 +61,7 @@ namespace artecrobo {
 				/*
 					Move Backward
 					M1:P6 = 0, P12 = speeed
-					M1:P0 = 0, P16 = speeed
+					M2:P0 = 0, P16 = speeed
 				*/
 				if (connector == connectorDCMotor.M1) {
 					pins.digitalWritePin(DigitalPin.P6, 0);
@@ -74,7 +75,7 @@ namespace artecrobo {
 				/*
 					Brake
 					M1:P6 = 1, P12 = 1
-					M1:P0 = 1, P16 = 1
+					M2:P0 = 1, P16 = 1
 				*/
 				if (connector == connectorDCMotor.M1) {
 					pins.digitalWritePin(DigitalPin.P6, 1);
@@ -88,7 +89,7 @@ namespace artecrobo {
 				/*
 					Coast
 					M1:P6 = 0, P12 = 0
-					M1:P0 = 0, P16 = 0
+					M2:P0 = 0, P16 = 0
 				*/
 				if (connector == connectorDCMotor.M1) {
 					pins.digitalWritePin(DigitalPin.P6, 0);
@@ -99,11 +100,14 @@ namespace artecrobo {
 				}
 				break;
 		}
+		state = motion;
 	}
 
 	//% blockId=set_speed_dc_motor
 	//% block="DCモーター %connector の速さを %speed にする"
 	export function setSpeedDCMotor(connector: connectorDCMotor, speed: number): void {
+		if (state == DCmotion.Forward || state == DCmotion.Backward) {
+		}
 	}
 
 	// Sync servo motor
