@@ -102,9 +102,8 @@ namespace artecrobo {
 	}
 
 	//% blockId=set_speed_dc_motor
-	//% block="DCモーター %string の速さを %speed にする"
-	export function setSpeedDCMotor(string: pin, speed: number): void {
-		digitalWritePin(name: DigitalPin, value: number);
+	//% block="DCモーター %connector の速さを %speed にする"
+	export function setSpeedDCMotor(connector: connectorDCMotor, speed: number): void {
 	}
 
 	// Sync servo motor
