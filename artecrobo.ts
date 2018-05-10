@@ -2,13 +2,13 @@
  * Types of DC motor control
  */
 enum DCmotion {
-	//% block= Forward
+	//% block= 正転
 	Forward,
-	//% block= Backward
+	//% block= 逆転
 	Backward,
-	//% block= Stop
+	//% block= 停止
 	Brake,
-	//% block= Release
+	//% block= 解放
 	Coast
 }
 
