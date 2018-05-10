@@ -31,13 +31,15 @@ enum connectorServoMotor {
 /**
  * ArtecRobo control package
  */
-//% weight=70 icon="\uf1db" color=#EC7505  block="ArtecRobo"
+//% color=190 weight=100 icon="\uf1ec" block="ArtecRobo"
 namespace artecrobo {
 
 	/* spped initial value */
 	let speedM1 = 0;
 	let speedM2 = 0;
 	// Move DC motor
+	//% blockId=move_dc_motor
+	//% block="DCモーターを %v を %v にする"
 	export function moveDCMotor(connector: connectorDCMotor, motion: DCmotion): void {
 		switch(motion) {
 			case DCmotion.Forward:
@@ -99,7 +101,8 @@ namespace artecrobo {
 		}
 	}
 
-	// Move DC motor
+	//% blockId=set_speed_dc_motor
+	//% block="DCモーターの速さを %v にする"
 	export function setSpeedDCMotor(string: pin, speed: number): void {
 		digitalWritePin(name: DigitalPin, value: number);
 	}
