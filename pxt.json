@@ -1,6 +1,6 @@
 {
     "name": "ArtecRobo",
-    "description": "Control ArtecRobo.",
+    "description": "Control ArtecRobo package, created by Artec.",
 	"license": "MIT",
     "files": [
         "artecrobo.ts"
