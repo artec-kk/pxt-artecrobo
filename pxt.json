@@ -2,6 +2,7 @@
     "name": "ArtecRobo",
     "version": "0.0.1",
     "description": "Control ArtecRobo package, created by Artec.",
+    "icon": "icon.png",
 	"license": "MIT",
     "files": [
         "artecrobo.ts"
