@@ -39,7 +39,7 @@ namespace artecrobo {
 	let speedM2 = 1023;
 	let state = DCmotion.Brake;
 	// Move DC motor
-	//% blockId=move_dc_motor
+	//% blockId=artec_move_dc_motor
 	//% block="DCモーター %connector|を %motion|にする"
 	export function moveDCMotor(connector: connectorDCMotor, motion: DCmotion): void {
 		switch(motion) {
@@ -103,7 +103,7 @@ namespace artecrobo {
 		state = motion;
 	}
 
-	//% blockId=set_speed_dc_motor
+	//% blockId=artec_set_speed_dc_motor
 	//% block="DCモーター %connector|の速さを %speed|にする"
 	export function setSpeedDCMotor(connector: connectorDCMotor, speed: number): void {
 		if (connector == connectorDCMotor.M1) {

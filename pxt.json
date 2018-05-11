@@ -4,7 +4,9 @@
     "description": "Control ArtecRobo package, created by Artec.",
 	"license": "MIT",
     "files": [
-        "artecrobo.ts"
+        "artecrobo.ts",
+        "_locales/ja/artecrobo-strings.json",
+        "_locales/en/artecrobo-strings.json"
     ],
     "testFiles": [
         "test-artecrobo.ts"
