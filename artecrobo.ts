@@ -105,6 +105,7 @@ namespace artecrobo {
 
 	//% blockId=artec_set_speed_dc_motor
 	//% block="DCモーター %connector|の速さを %speed|にする"
+	// speed.min=0 speed.max= 1023
 	export function setSpeedDCMotor(connector: connectorDCMotor, speed: number): void {
 		if (connector == connectorDCMotor.M1) {
 			speedM1 = 1023 - speed;
