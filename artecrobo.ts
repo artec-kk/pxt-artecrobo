@@ -51,10 +51,10 @@ namespace artecrobo {
 				*/
 				if (connector == connectorDCMotor.M1) {
 					pins.analogWritePin(AnalogPin.P8, speedM1);
-					pins.digitalWritePin(DigitalPin.P12, 0);
+					pins.digitalWritePin(DigitalPin.P12, 1);
 				} else {
 					pins.analogWritePin(AnalogPin.P0, speedM2);
-					pins.digitalWritePin(DigitalPin.P16, 0);
+					pins.digitalWritePin(DigitalPin.P16, 1);
 				}
 				break;
 			case DCmotion.Backward:
@@ -64,10 +64,10 @@ namespace artecrobo {
 					M2:P0 = 0, P16 = speeed
 				*/
 				if (connector == connectorDCMotor.M1) {
-					pins.digitalWritePin(DigitalPin.P8, 0);
+					pins.digitalWritePin(DigitalPin.P8, 1);
 					pins.analogWritePin(AnalogPin.P12, speedM1);
 				} else {
-					pins.digitalWritePin(DigitalPin.P0, 0);
+					pins.digitalWritePin(DigitalPin.P0, 1);
 					pins.analogWritePin(AnalogPin.P16, speedM2);
 				}
 				break;
@@ -104,9 +104,15 @@ namespace artecrobo {
 	}
 
 	//% blockId=set_speed_dc_motor
-	//% block="DCモーター %connector の速さを %speed にする"
+	//% block="DCモーター %connector|の速さを %speed|にする"
 	export function setSpeedDCMotor(connector: connectorDCMotor, speed: number): void {
+		if (connector == connectorDCMotor.M1) {
+			speedM1 = 1023 - speed;
+		} else {
+			speedM2 = 1023 - speed;
+		}
 		if (state == DCmotion.Forward || state == DCmotion.Backward) {
+			moveDCMotor(connector, state);
 		}
 	}
 
