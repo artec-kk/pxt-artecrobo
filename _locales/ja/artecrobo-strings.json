@@ -5,6 +5,6 @@
   "DCmotion.Coast|block": "解放",
   "connectorDCMotor.M1|block": "M1",
   "connectorDCMotor.M2|block": "M2",
-  "artecrobo.moveDCMotor|block": "DCモーター %connector|を %motion|にする",
-  "artecrobo.setSpeedDCMotor|block": "DCモーター %connector|の速さを %speed|にする",
+  "artecrobo.moveDCMotor|block": "DC motor %connector|を %motion|にする",
+  "artecrobo.setSpeedDCMotor|block": "DC motor %connector|の速さを %speed|にする",
 }
