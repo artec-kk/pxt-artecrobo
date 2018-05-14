@@ -2,13 +2,13 @@
  * Types of DC motor control
  */
 enum DCmotion {
-	//% block= 正転
+	//% block= Forward
 	Forward,
-	//% block= 逆転
+	//% block= Backward
 	Backward,
-	//% block= 停止
+	//% block= Brake
 	Brake,
-	//% block= 解放
+	//% block= Coast
 	Coast
 }
 
@@ -40,7 +40,7 @@ namespace artecrobo {
 	let state = DCmotion.Brake;
 	// Move DC motor
 	//% blockId=artec_move_dc_motor
-	//% block="DCモーター %connector|を %motion|にする"
+	//% block="Set DC motor %connector to %motion"
 	export function moveDCMotor(connector: connectorDCMotor, motion: DCmotion): void {
 		switch(motion) {
 			case DCmotion.Forward:
@@ -104,7 +104,7 @@ namespace artecrobo {
 	}
 
 	//% blockId=artec_set_speed_dc_motor
-	//% block="DCモーター %connector|の速さを %speed|にする"
+	//% block="Set DC motor %connector| speed as %speed"
 	//% speed.min=0 speed.max= 1023
 	export function setSpeedDCMotor(connector: connectorDCMotor, speed: number): void {
 		if (connector == connectorDCMotor.M1) {
