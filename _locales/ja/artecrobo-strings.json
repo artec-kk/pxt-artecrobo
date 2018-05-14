@@ -1,3 +1,13 @@
 {
   "DCmotion.Forward|block": "正転",
+  "DCmotion.Backward|block": "逆転",
+  "DCmotion.Brake|block": "停止",
+  "DCmotion.Coast|block": "解放",
+  "connectorDCMotor.M1|block": "M1",
+  "connectorDCMotor.M2|block": "M2",
+  "connectorServoMotor.P13|block": "P13",
+  "connectorServoMotor.P14|block": "P14",
+  "connectorServoMotor.P15|block": "P15",
+  "artecrobo.moveDCMotor|block": "DC motor %connector|を %motion|にする",
+  "artecrobo.setSpeedDCMotor|block": "DC motor %connector|の速さを %speed|にする"
 }
