@@ -6,5 +6,5 @@
   "connectorDCMotor.M1|block": "M1",
   "connectorDCMotor.M2|block": "M2",
   "artecrobo.moveDCMotor|block": "DC motor %connector|を %motion|にする",
-  "artecrobo.setSpeedDCMotor|block": "DC motor %connector|の速さを %speed|にする",
+  "artecrobo.setSpeedDCMotor|block": "DC motor %connector|の速さを %speed|にする"
 }

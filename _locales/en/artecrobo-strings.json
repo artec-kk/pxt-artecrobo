@@ -6,5 +6,5 @@
   "connectorDCMotor.M1|block": "M1",
   "connectorDCMotor.M2|block": "M2",
   "artecrobo.moveDCMotor|block": "Set DC motor %connector to %motion",
-  "artecrobo.setSpeedDCMotor|block": "Set DC motor %connector| speed as %speed",
+  "artecrobo.setSpeedDCMotor|block": "Set DC motor %connector| speed as %speed"
 }
