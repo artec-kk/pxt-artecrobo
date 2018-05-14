@@ -40,7 +40,6 @@ namespace artecrobo {
 	let state = DCmotion.Brake;
 	// Move DC motor
 	//% blockId=artec_move_dc_motor
-	//% block="DCモーター %connector|を %motion|にする"
 	export function moveDCMotor(connector: connectorDCMotor, motion: DCmotion): void {
 		switch(motion) {
 			case DCmotion.Forward:
