@@ -1,10 +1,13 @@
 {
   "DCmotion.Forward|block": "Forward",
   "DCmotion.Backward|block": "Backward",
-  "DCmotion.Stop|block": "Brake",
+  "DCmotion.Brake|block": "Brake",
   "DCmotion.Coast|block": "Coast",
   "connectorDCMotor.M1|block": "M1",
   "connectorDCMotor.M2|block": "M2",
+  "connectorServoMotor.P13|block": "P13",
+  "connectorServoMotor.P14|block": "P14",
+  "connectorServoMotor.P15|block": "P15",
   "artecrobo.moveDCMotor|block": "Set DC motor %connector|to %motion",
   "artecrobo.setSpeedDCMotor|block": "Set DC motor %connector| speed as %speed"
 }
