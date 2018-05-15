@@ -122,15 +122,6 @@ namespace artecrobo {
 	let angleP13 = 0;
 	let angleP14 = 0;
 	let angleP15 = 0;
-
-	let diffP13 = 0;
-	let diffP14 = 0;
-	let diffP15 = 0;
-
-	let divideP13 = 0;
-	let divideP14 = 0;
-	let divideP15 = 0;
-
 	//% blockId=artec_move_servo_motor
 	//% block="Move Serve Motor %connector| angle as %angle"
 	//% speed.min=0 speed.max= 1023
@@ -191,22 +182,39 @@ namespace artecrobo {
 		let diffP15 = Math.abs(_angle15 - angleP15);	// 変化量
 	    let maxData = Math.max(diffP13, diffP14);
 	    maxData = Math.max(maxData, diffP15);
-		let divideP13 = maxData / diffP13;	// 1度変化させる間隔
-		let divideP14 = maxData / diffP14;	// 1度変化させる間隔
-		let divideP15 = maxData / diffP15;	// 1度変化させる間隔
+
+	    let divideP13 = 0;
+	    let divideP14 = 0;
+	    let divideP15 = 0;
+
+	    if (diffP13 != 0) {
+			let divideP13 = maxData / diffP13;	// 1度変化させる間隔
+	    }
+	    if (diffP14 != 0) {
+			let divideP14 = maxData / diffP14;	// 1度変化させる間隔
+	    }
+	    if (diffP15 != 0) {
+			let divideP15 = maxData / diffP15;	// 1度変化させる間隔
+		}
 
 		for(let i = 0; i <= maxData; i++ ) {
-			if( i % divideP13 == 0 ){
-				angleP13 = angleP13 + dirP13;
-				pins.servoWritePin(AnalogPin.P13, angleP13);
+			if (diffP13 != 0) {
+				if( i % divideP13 == 0 ){
+					angleP13 = angleP13 + dirP13;
+					pins.servoWritePin(AnalogPin.P13, angleP13);
+				}
 			}
-			if( i % divideP14 == 0 ){
-				angleP14 = angleP14 + dirP14;
-				pins.servoWritePin(AnalogPin.P14, angleP14);
+			if (diffP14 != 0) {
+				if( i % divideP14 == 0 ){
+					angleP14 = angleP14 + dirP14;
+					pins.servoWritePin(AnalogPin.P14, angleP14);
+				}
 			}
-			if( i % divideP15 == 0 ){
-				angleP15 = angleP15 + dirP15;
-				pins.servoWritePin(AnalogPin.P15, angleP15);
+			if (diffP15 != 0) {
+				if( i % divideP15 == 0 ){
+					angleP15 = angleP15 + dirP15;
+					pins.servoWritePin(AnalogPin.P15, angleP15);
+				}
 			}
 			basic.pause(interval);
 		}
@@ -214,8 +222,8 @@ namespace artecrobo {
 		angleP13 = _angle13;
 		angleP14 = _angle14;
 		angleP15 = _angle15;
-		pins.servoWritePin(AnalogPin.P13, angleP13);
-		pins.servoWritePin(AnalogPin.P14, angleP14);
-		pins.servoWritePin(AnalogPin.P15, angleP15);
+		if (diffP13 != 0) pins.servoWritePin(AnalogPin.P13, angleP13);
+		if (diffP14 != 0) pins.servoWritePin(AnalogPin.P14, angleP14);
+		if (diffP15 != 0) pins.servoWritePin(AnalogPin.P15, angleP15);
 	}
 }
