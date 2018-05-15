@@ -196,10 +196,10 @@ namespace artecrobo {
 		let divideP15 = maxData / diffP15;	// 1度変化させる間隔
 
 		for(i = 0; i <= maxData; i++ ) {
-			if( i % divideP13 == 0 ){
-				angleP13 = angleP13 + dirP13;
-				pins.servoWritePin(AnalogPin.P13, angleP13);
-			}
+			// if( i % divideP13 == 0 ){
+			// 	angleP13 = angleP13 + dirP13;
+			// 	pins.servoWritePin(AnalogPin.P13, angleP13);
+			// }
 			// if( i % divideP14 == 0 ){
 			// 	angleP14 = angleP14 + dirP14;
 			// 	pins.servoWritePin(AnalogPin.P14, angleP14);
