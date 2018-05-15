@@ -169,7 +169,7 @@ namespace artecrobo {
     //% _angle15.min=0 _angle15.max=180
 	export function AsyncMoveServoMotor(_speed: number, _angle13: number, _angle14: number, _angle15: number): void {
 
-		var interval = Math.abs(_speed - 20) + 3;
+		let interval = Math.abs(_speed - 20) + 3;
 		// サーボモーターを動かす方向
 		let dirP13 = 1;
 		let dirP14 = 1;
@@ -186,14 +186,15 @@ namespace artecrobo {
 			dirP15 = -1;
 		}
 
-		var diff: number[] = new Array(3);
-		diff[0] = Math.abs(_angle13 - angleP13);	// 変化量
-		diff[1] = Math.abs(_angle14 - angleP14);	// 変化量
-		diff[2] = Math.abs(_angle15 - angleP15);	// 変化量
-		var maxData = diff[0];
-		for (var i = 1; i < diff.length; i++) {
-		    maxData = Math.max(maxData, diff[i]);
-		}
+		// let diff: number[] = new Array(3);
+		// diff[0] = Math.abs(_angle13 - angleP13);	// 変化量
+		// diff[1] = Math.abs(_angle14 - angleP14);	// 変化量
+		// diff[2] = Math.abs(_angle15 - angleP15);	// 変化量
+		// let maxData = diff[0];
+		// for (var i = 1; i < diff.length; i++) {
+		//     maxData = Math.max(maxData, diff[i]);
+		// }
+		maxData = 180;
 		divideP13 = maxData / diff[0];	// 1度変化させる間隔
 		divideP14 = maxData / diff[1];	// 1度変化させる間隔
 		divideP15 = maxData / diff[2];	// 1度変化させる間隔
