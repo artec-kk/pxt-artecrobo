@@ -186,7 +186,7 @@ namespace artecrobo {
 			dirP15 = -1;
 		}
 
-		let diff = new Array(3);
+		var diff = new Array(3);
 		diff[0] = Math.abs(_angle13 - angleP13);	// 変化量
 		diff[1] = Math.abs(_angle14 - angleP14);	// 変化量
 		diff[2] = Math.abs(_angle15 - angleP15);	// 変化量
