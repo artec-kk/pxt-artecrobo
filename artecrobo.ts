@@ -174,17 +174,17 @@ namespace artecrobo {
 		let dirP13 = 1;
 		let dirP14 = 1;
 		let dirP15 = 1;
-		if(_angle13 - angleP13 < 0) {
-			dirP13 = -1;
-		}
+		// if(_angle13 - angleP13 < 0) {
+		// 	dirP13 = -1;
+		// }
 
-		if(_angle14 - angleP14 < 0) {
-			dirP14 = -1;
-		}
+		// if(_angle14 - angleP14 < 0) {
+		// 	dirP14 = -1;
+		// }
 
-		if(_angle15 - angleP15 < 0) {
-			dirP15 = -1;
-		}
+		// if(_angle15 - angleP15 < 0) {
+		// 	dirP15 = -1;
+		// }
 
 		// var diff: number[] = new Array(3);
 		// diff[0] = Math.abs(_angle13 - angleP13);	// 変化量
