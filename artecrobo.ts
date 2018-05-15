@@ -186,18 +186,14 @@ namespace artecrobo {
 			dirP15 = -1;
 		}
 
-		var diff[];
-		diff[0] = Math.abs(_angle13 - angleP13);	// 変化量
-		diff[1] = Math.abs(_angle14 - angleP14);	// 変化量
-		diff[2] = Math.abs(_angle15 - angleP15);	// 変化量
-		let maxData = diff[0];
-		for (var i = 1; i < diff.length; i++) {
-		    maxData = Math.max(maxData, diff[i]);
-		}
-		maxData = 180;
-		divideP13 = maxData / diff[0];	// 1度変化させる間隔
-		divideP14 = maxData / diff[1];	// 1度変化させる間隔
-		divideP15 = maxData / diff[2];	// 1度変化させる間隔
+		diffP13 = Math.abs(_angle13 - angleP13);	// 変化量
+		diffP14 = Math.abs(_angle14 - angleP14);	// 変化量
+		diffP15 = Math.abs(_angle15 - angleP15);	// 変化量
+	    maxData = Math.max(diffP13, diffP14);
+	    maxData = Math.max(maxData, diffP15);
+		divideP13 = maxData / diffP13;	// 1度変化させる間隔
+		divideP14 = maxData / diffP14;	// 1度変化させる間隔
+		divideP15 = maxData / diffP15;	// 1度変化させる間隔
 
 		// for(i = 0; i <= maxData; i++ ) {
 		// 	if( i % divideP13 == 0 ){
