@@ -143,8 +143,18 @@ namespace artecrobo {
 		}
 	}
 
-	// Sync servo motor
-	// export function moveServoMotorSync(string: pin, int: speed): void {
-	// 	digitalWritePin(name: DigitalPin, value: number);
-	// }
+	/**
+	 * Move Servo Motor Async.
+	 * @param speed speed
+	 * @param angle13 ServoMotor Angle P13
+	 * @param angle14 ServoMotor Angle P14
+	 * @param angle15 ServoMotor Angle P15
+	 */
+    //% weight=84
+    //% blockId=artec_async_move_servo_motor
+    //% block="Move Servo motor speed as %speed| P13 angle as %angle13| P14 angle as %angle14| P15 angle as %angle15|"
+    //% blockExternalInputs=true
+	Sync servo motor
+	export function AsyncMoveServoMotor(speed: number, angle13: number, angle14: number, angle15: number): void {
+	}
 }
