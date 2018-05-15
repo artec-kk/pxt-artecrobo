@@ -197,25 +197,25 @@ namespace artecrobo {
 
 		for(i = 0; i <= maxData; i++ ) {
 			if( i % divideP13 == 0 ){
-				angleP13 += dirP13;
+				angleP13 = angleP13 + dirP13;
 				pins.servoWritePin(AnalogPin.P13, angleP13);
 			}
 			if( i % divideP14 == 0 ){
-				angleP14 += dirP14;
+				angleP14 = angleP14 + dirP14;
 				pins.servoWritePin(AnalogPin.P14, angleP14);
 			}
 			if( i % divideP15 == 0 ){
-				angleP15 += dirP15;
+				angleP15 = angleP15 + dirP15;
 				pins.servoWritePin(AnalogPin.P15, angleP15);
 			}
 			basic.pause(interval)
 		}
 		// 最後に全部そろえる。
-		angleP13 = _angle13;
-		angleP14 = _angle14;
-		angleP15 = _angle15;
-		pins.servoWritePin(AnalogPin.P13, angleP13);
-		pins.servoWritePin(AnalogPin.P14, angleP14);
-		pins.servoWritePin(AnalogPin.P15, angleP15);
+		// angleP13 = _angle13;
+		// angleP14 = _angle14;
+		// angleP15 = _angle15;
+		// pins.servoWritePin(AnalogPin.P13, angleP13);
+		// pins.servoWritePin(AnalogPin.P14, angleP14);
+		// pins.servoWritePin(AnalogPin.P15, angleP15);
 	}
 }
