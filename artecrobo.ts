@@ -178,26 +178,26 @@ namespace artecrobo {
 			dirP13 = -1;
 		}
 
-		// if(_angle14 - angleP14 < 0) {
-		// 	dirP14 = -1;
-		// }
+		if(_angle14 - angleP14 < 0) {
+			dirP14 = -1;
+		}
 
-		// if(_angle15 - angleP15 < 0) {
-		// 	dirP15 = -1;
-		// }
+		if(_angle15 - angleP15 < 0) {
+			dirP15 = -1;
+		}
 
-		// let diff: number[] = new Array(3);
-		// diff[0] = Math.abs(_angle13 - angleP13);	// 変化量
-		// diff[1] = Math.abs(_angle14 - angleP14);	// 変化量
-		// diff[2] = Math.abs(_angle15 - angleP15);	// 変化量
-		// let maxData = diff[0];
-		// for (var i = 1; i < diff.length; i++) {
-		//     maxData = Math.max(maxData, diff[i]);
-		// }
-		// maxData = 180;
-		// divideP13 = maxData / diff[0];	// 1度変化させる間隔
-		// divideP14 = maxData / diff[1];	// 1度変化させる間隔
-		// divideP15 = maxData / diff[2];	// 1度変化させる間隔
+		let diff: number[] = new Array(3);
+		diff[0] = Math.abs(_angle13 - angleP13);	// 変化量
+		diff[1] = Math.abs(_angle14 - angleP14);	// 変化量
+		diff[2] = Math.abs(_angle15 - angleP15);	// 変化量
+		let maxData = diff[0];
+		for (var i = 1; i < diff.length; i++) {
+		    maxData = Math.max(maxData, diff[i]);
+		}
+		maxData = 180;
+		divideP13 = maxData / diff[0];	// 1度変化させる間隔
+		divideP14 = maxData / diff[1];	// 1度変化させる間隔
+		divideP15 = maxData / diff[2];	// 1度変化させる間隔
 
 		// for(i = 0; i <= maxData; i++ ) {
 		// 	if( i % divideP13 == 0 ){
