@@ -38,6 +38,10 @@ namespace artecrobo {
 	let speedM1 = 1023;
 	let speedM2 = 1023;
 	let state = DCmotion.Brake;
+
+	let angleP13 = 0;
+	let angleP14 = 0;
+	let angleP15 = 0;
 	// Move DC motor
 	//% blockId=artec_move_dc_motor
 	//% block="Set DC motor %connector|to %motion"
@@ -124,12 +128,15 @@ namespace artecrobo {
 		switch (connector) {
 			case connectorServoMotor.P13:
 		 		pins.servoWritePin(AnalogPin.P13, angle);
+		 		angleP13 = angle;
 		 		break;
 			case connectorServoMotor.P14:
 		 		pins.servoWritePin(AnalogPin.P14, angle);
+		 		angleP14 = angle;
 		 		break;
 			case connectorServoMotor.P15:
 		 		pins.servoWritePin(AnalogPin.P15, angle);
+		 		angleP15 = angle;
 		 		break;
 		 	default:
 		 		break;
