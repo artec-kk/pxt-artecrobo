@@ -184,39 +184,39 @@ namespace artecrobo {
 			dirP15 = -1;
 		}
 
-		var diff: number[] = new Array(3);
-		diff[0] = Math.abs(_angle13 - angleP13);	// 変化量
-		diff[1] = Math.abs(_angle14 - angleP14);	// 変化量
-		diff[2] = Math.abs(_angle15 - angleP15);	// 変化量
-		var maxData = diff[0];
-		for (var i = 1; i < diff.length; i++) {
-		    maxData = Math.max(maxData, diff[i]);
-		}
-		divideP13 = maxData / diff[0];	// 1度変化させる間隔
-		divideP14 = maxData / diff[1];	// 1度変化させる間隔
-		divideP15 = maxData / diff[2];	// 1度変化させる間隔
+		// var diff: number[] = new Array(3);
+		// diff[0] = Math.abs(_angle13 - angleP13);	// 変化量
+		// diff[1] = Math.abs(_angle14 - angleP14);	// 変化量
+		// diff[2] = Math.abs(_angle15 - angleP15);	// 変化量
+		// var maxData = diff[0];
+		// for (var i = 1; i < diff.length; i++) {
+		//     maxData = Math.max(maxData, diff[i]);
+		// }
+		// divideP13 = maxData / diff[0];	// 1度変化させる間隔
+		// divideP14 = maxData / diff[1];	// 1度変化させる間隔
+		// divideP15 = maxData / diff[2];	// 1度変化させる間隔
 
-		for(i = 0; i <= maxData; i++ ) {
-			if( i % divideP13 == 0 ){
-				angleP13 += dirP13;
-				pins.servoWritePin(AnalogPin.P13, angleP13);
-			}
-			if( i % divideP14 == 0 ){
-				angleP14 += dirP14;
-				pins.servoWritePin(AnalogPin.P14, angleP14);
-			}
-			if( i % divideP15 == 0 ){
-				angleP15 += dirP15;
-				pins.servoWritePin(AnalogPin.P15, angleP15);
-			}
-			basic.pause(interval)
-		}
-		// 最後に全部そろえる。
-		angleP13 = _angle13;
-		angleP14 = _angle14;
-		angleP15 = _angle15;
-		pins.servoWritePin(AnalogPin.P13, angleP13);
-		pins.servoWritePin(AnalogPin.P14, angleP14);
-		pins.servoWritePin(AnalogPin.P15, angleP15);
+		// for(i = 0; i <= maxData; i++ ) {
+		// 	if( i % divideP13 == 0 ){
+		// 		angleP13 += dirP13;
+		// 		pins.servoWritePin(AnalogPin.P13, angleP13);
+		// 	}
+		// 	if( i % divideP14 == 0 ){
+		// 		angleP14 += dirP14;
+		// 		pins.servoWritePin(AnalogPin.P14, angleP14);
+		// 	}
+		// 	if( i % divideP15 == 0 ){
+		// 		angleP15 += dirP15;
+		// 		pins.servoWritePin(AnalogPin.P15, angleP15);
+		// 	}
+		// 	basic.pause(interval)
+		// }
+		// // 最後に全部そろえる。
+		// angleP13 = _angle13;
+		// angleP14 = _angle14;
+		// angleP15 = _angle15;
+		// pins.servoWritePin(AnalogPin.P13, angleP13);
+		// pins.servoWritePin(AnalogPin.P14, angleP14);
+		// pins.servoWritePin(AnalogPin.P15, angleP15);
 	}
 }
