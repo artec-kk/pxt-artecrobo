@@ -121,7 +121,19 @@ namespace artecrobo {
 	//% block="Move Serve Motor %connector| angle as %angle"
 	//% speed.min=0 speed.max= 1023
 	export function moveServoMotor(connector: connectorServoMotor, angle: number): void {
- 		pins.servoWritePin(connector, angle);
+		switch (connector) {
+			case connectorServoMotor.P13:
+		 		pins.servoWritePin(AnalogPin.P13, angle);
+		 		break;
+			case connectorServoMotor.P14:
+		 		pins.servoWritePin(AnalogPin.P14, angle);
+		 		break;
+			case connectorServoMotor.P15:
+		 		pins.servoWritePin(AnalogPin.P15, angle);
+		 		break;
+		 	default:
+		 		break;
+		}
 	}
 
 	// Sync servo motor
