@@ -152,7 +152,7 @@ namespace artecrobo {
 	 */
     //% weight=84
     //% blockId=artec_async_move_servo_motor
-    //% block="Move Servo motor speed as %speed |P13 angle as %angle13 |P14 angle as %angle14 |P15 angle as %angle15"
+    //% block="Move Servo motor asynchronous| speed as %speed |P13 angle as %angle13 |P14 angle as %angle14 |P15 angle as %angle15"
 	// Sync servo motor
 	export function AsyncMoveServoMotor(speed: number, angle13: number, angle14: number, angle15: number): void {
 	}
