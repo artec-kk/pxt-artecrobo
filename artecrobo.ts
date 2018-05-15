@@ -172,7 +172,7 @@ namespace artecrobo {
 
 		interval = (Math.abs(speed - 20) + 3;
 		// サーボモーターを動かす方向
-		dirP13 = dirP14 = dirP15 = 1;
+		var dirP13 = dirP14 = dirP15 = 1;
 		if(angleP13 - _angle13 < 0) dirP13 = -1;
 		if(angleP14 - _angle14 < 0) dirP14 = -1;
 		if(angleP15 - _angle15 < 0) dirP15 = -1;
@@ -181,14 +181,14 @@ namespace artecrobo {
 		diff[1] = Math.abs(angleP14 - _angle14);	// 変化量
 		diff[2] = Math.abs(angleP15 - _angle15);	// 変化量
 		var maxData = diff[0];
-		for (var i = 0; i < diff.length; i++) {
+		for (var i = 1; i < diff.length; i++) {
 		    maxData = Math.max(maxData, diff[i]);
 		}
-		divideP13 = maxData / diff[0];	// 1度変化させる時間
-		divideP14 = maxData / diff[1];	// 1度変化させる時間
-		divideP15 = maxData / diff[2];	// 1度変化させる時間
+		divideP13 = maxData / diff[0];	// 1度変化させる間隔
+		divideP14 = maxData / diff[1];	// 1度変化させる間隔
+		divideP15 = maxData / diff[2];	// 1度変化させる間隔
 
-		for(var i = 0; i > maxData; i++ ) {
+		for(i = 0; i <= maxData; i++ ) {
 			if( i % divideP13 == 0 ){
 				angleP13 += dirP13;
 				pins.servoWritePin(AnalogPin.P13, angleP13);
