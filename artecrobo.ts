@@ -171,12 +171,12 @@ namespace artecrobo {
 
 		let interval = Math.abs(_speed - 20) + 3;
 		// サーボモーターを動かす方向
-		// let dirP13 = 1;
-		// let dirP14 = 1;
-		// let dirP15 = 1;
-		// if(_angle13 - angleP13 < 0) {
-		// 	dirP13 = -1;
-		// }
+		let dirP13 = 1;
+		let dirP14 = 1;
+		let dirP15 = 1;
+		if(_angle13 - angleP13 < 0) {
+			dirP13 = -1;
+		}
 
 		// if(_angle14 - angleP14 < 0) {
 		// 	dirP14 = -1;
