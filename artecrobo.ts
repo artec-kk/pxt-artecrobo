@@ -1,37 +1,38 @@
 /**
+ * Types of DC motor control
+ */
+enum DCmotion {
+	//% block= Forward
+	Forward,
+	//% block= Backward
+	Backward,
+	//% block= Brake
+	Brake,
+	//% block= Coast
+	Coast
+}
+
+enum connectorDCMotor {
+	//% block= M1
+	M1,
+	//% block= M2
+	M2
+}
+
+enum connectorServoMotor {
+	//% block= P13
+	P13,
+	//% block= P14
+	P14,
+	//% block= P15
+	P15
+}
+
+/**
  * ArtecRobo control package
  */
 //% color=190 weight=100 icon="\uf009" block="ArtecRobo"
 namespace artecrobo {
-	/**
-	 * Types of DC motor control
-	 */
-	enum DCmotion {
-		//% block= Forward
-		Forward,
-		//% block= Backward
-		Backward,
-		//% block= Brake
-		Brake,
-		//% block= Coast
-		Coast
-	}
-
-	enum connectorDCMotor {
-		//% block= M1
-		M1,
-		//% block= M2
-		M2
-	}
-
-	enum connectorServoMotor {
-		//% block= P13
-		P13,
-		//% block= P14
-		P14,
-		//% block= P15
-		P15
-	}
 
 	/* spped initial value */
 	let speedM1 = 1023;
