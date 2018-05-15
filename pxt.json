@@ -5,8 +5,8 @@
 	"license": "MIT",
     "files": [
         "artecrobo.ts",
-        "_locales/ja/artecrobo-strings.json",
-        "_locales/en/artecrobo-strings.json"
+        "_locales/ja/artecrobo-jsdoc-strings.json"
+        "_locales/ja/artecrobo-strings.json"
     ],
     "testFiles": [
         "test-artecrobo.ts"

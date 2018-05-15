@@ -1,0 +1,5 @@
+{
+  "artecrobo": "Control Package for ArtecRobo",
+  "artecrobo.moveDCMotor|block": "Assign DC motor movemnet.",
+  "artecrobo.setSpeedDCMotor|block": "Set DC motor speed.",
+}
