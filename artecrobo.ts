@@ -39,9 +39,6 @@ namespace artecrobo {
 	let speedM2 = 1023;
 	let state = DCmotion.Brake;
 
-	let angleP13 = 0;
-	let angleP14 = 0;
-	let angleP15 = 0;
 	// Move DC motor
 	//% blockId=artec_move_dc_motor
 	//% block="Set DC motor %connector|to %motion"
@@ -121,6 +118,19 @@ namespace artecrobo {
 		}
 	}
 
+
+	let angleP13 = 0;
+	let angleP14 = 0;
+	let angleP15 = 0;
+
+	let diffP13 = 0;
+	let diffP14 = 0;
+	let diffP15 = 0;
+
+	let divideP13 = 0;
+	let divideP14 = 0;
+	let divideP15 = 0;
+
 	//% blockId=artec_move_servo_motor
 	//% block="Move Serve Motor %connector| angle as %angle"
 	//% speed.min=0 speed.max= 1023
@@ -152,8 +162,53 @@ namespace artecrobo {
 	 */
     //% weight=84
     //% blockId=artec_async_move_servo_motor
-    //% block="Move Servo motor asynchronous| speed as %speed |P13 %b13|angle as %angle13 |P14 angle as %angle14 |P15 angle as %angle15"
-	// Sync servo motor
-	export function AsyncMoveServoMotor(speed: number, b13: boolean, angle13: number, angle14: number, angle15: number): void {
+    //% block="Move Servo motor asynchronous| speed as %_speed |P13 angle as %_angle13 |P14 angle as %_angle14 |P15 angle as %_angle15"
+    //% _speed.min=1 _speed.max=20
+    //% _angle13.min=0 _angle13.max=180
+    //% _angle14.min=0 _angle14.max=180
+    //% _angle15.min=0 _angle15.max=180
+	export function AsyncMoveServoMotor(_speed: number, _angle13: number, _angle14: number, _angle15: number): void {
+		var diff: number[] = new Array(3);
+
+		interval = (Math.abs(speed - 20) + 3;
+		// サーボモーターを動かす方向
+		dirP13 = dirP14 = dirP15 = 1;
+		if(angleP13 - _angle13 < 0) dirP13 = -1;
+		if(angleP14 - _angle14 < 0) dirP14 = -1;
+		if(angleP15 - _angle15 < 0) dirP15 = -1;
+
+		diff[0] = Math.abs(angleP13 - _angle13);	// 変化量
+		diff[1] = Math.abs(angleP14 - _angle14);	// 変化量
+		diff[2] = Math.abs(angleP15 - _angle15);	// 変化量
+		var maxData = diff[0];
+		for (var i = 0; i < diff.length; i++) {
+		    maxData = Math.max(maxData, diff[i]);
+		}
+		divideP13 = maxData / diff[0];	// 1度変化させる時間
+		divideP14 = maxData / diff[1];	// 1度変化させる時間
+		divideP15 = maxData / diff[2];	// 1度変化させる時間
+
+		for(var i = 0; i > maxData; i++ ) {
+			if( i % divideP13 == 0 ){
+				angleP13 += dirP13;
+				pins.servoWritePin(AnalogPin.P13, angleP13);
+			}
+			if( i % divideP14 == 0 ){
+				angleP14 += dirP14;
+				pins.servoWritePin(AnalogPin.P14, angleP14);
+			}
+			if( i % divideP15 == 0 ){
+				angleP15 += dirP15;
+				pins.servoWritePin(AnalogPin.P15, angleP15);
+			}
+			basic.pause(interval)
+		}
+		// 最後に全部そろえる。
+		angleP13 = _angle13;
+		angleP14 = _angle14;
+		angleP15 = _angle15;
+		pins.servoWritePin(AnalogPin.P13, angleP13);
+		pins.servoWritePin(AnalogPin.P14, angleP14);
+		pins.servoWritePin(AnalogPin.P15, angleP15);
 	}
 }
