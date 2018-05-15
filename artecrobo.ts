@@ -21,11 +21,11 @@ enum connectorDCMotor {
 
 enum connectorServoMotor {
 	//% block= P13
-	P13,
+	P13 = AnalogPin.P13,
 	//% block= P14
-	P14,
+	P14 =  AnalogPin.P14,
 	//% block= P15
-	P15
+	P15 =  AnalogPin.P15
 }
 
 /**
@@ -115,6 +115,13 @@ namespace artecrobo {
 		if (state == DCmotion.Forward || state == DCmotion.Backward) {
 			moveDCMotor(connector, state);
 		}
+	}
+
+	//% blockId=artec_move_servo_motor
+	//% block="Move Serve Motor %connector| angle as %angle"
+	//% speed.min=0 speed.max= 1023
+	export function moveServoMotor(connector: connectorServoMotor, angle: number): void {
+ 		pins.servoWritePin(connector, angle);
 	}
 
 	// Sync servo motor
