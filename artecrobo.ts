@@ -126,18 +126,18 @@ namespace artecrobo {
 	export function moveServoMotor(_connector: connectorServoMotor, _angle: number, _speed: number): void {
 		switch (_connector) {
 			case connectorServoMotor.P13:
-				// moveservo (AnalogPin.P13, angleP13, _angle, _speed);
-		 		pins.servoWritePin(AnalogPin.P13, _angle);
+				moveservo (AnalogPin.P13, angleP13, _angle, _speed);
+		 		// pins.servoWritePin(AnalogPin.P13, _angle);
 		 		angleP13 = _angle;
 		 		break;
 			case connectorServoMotor.P14:
-				// moveservo (AnalogPin.P14, angleP14, _angle, _speed);
-		 		pins.servoWritePin(AnalogPin.P14, _angle);
+				moveservo (AnalogPin.P14, angleP14, _angle, _speed);
+		 		// pins.servoWritePin(AnalogPin.P14, _angle);
 		 		angleP14 = _angle;
 		 		break;
 			case connectorServoMotor.P15:
-				// moveservo (AnalogPin.P15, angleP15, _angle, _speed);
-		 		pins.servoWritePin(AnalogPin.P15, _angle);
+				moveservo (AnalogPin.P15, angleP15, _angle, _speed);
+		 		// pins.servoWritePin(AnalogPin.P15, _angle);
 		 		angleP15 = _angle;
 		 		break;
 		 	default:
@@ -145,19 +145,19 @@ namespace artecrobo {
 		}
 	}
 
-	// function moveservo (_pin: AnalogPin, _FromAngle: number, _ToAngle: number, _speed: number) {
-	// 	let interval = Math.abs(_speed - 20) + 3;
-	// 	let dir = 1;
-	// 	if(_FromAngle - _ToAngle < 0) {
-	// 		dir = -1;
-	// 	}
-	// 	let diff = Math.abs(_FromAngle - _ToAngle);
-	// 	for(let i = 0; i < diff; i++ ) {
-	// 		_FromAngle = _FromAngle + dir
-	// 		pins.servoWritePin(_pin, _FromAngle);
-	// 		basic.pause(interval);
-	// 	}
-	// }
+	function moveservo (_pin: AnalogPin, _FromAngle: number, _ToAngle: number, _speed: number) {
+		let interval = Math.abs(_speed - 20) + 3;
+		let dir = 1;
+		if(_FromAngle - _ToAngle < 0) {
+			dir = -1;
+		}
+		let diff = Math.abs(_FromAngle - _ToAngle);
+		for(let i = 0; i < diff; i++ ) {
+			_FromAngle = _FromAngle + dir
+			pins.servoWritePin(_pin, _FromAngle);
+			basic.pause(interval);
+		}
+	}
 
 	/**
 	 * Move Servo Motor Async.
@@ -177,16 +177,16 @@ namespace artecrobo {
 		let interval = Math.abs(_speed - 20) + 3;
 		// サーボモーターを動かす方向
 		let dirP13 = 1;
-		let dirP14 = 1;
-		let dirP15 = 1;
 		if(_angle13 - angleP13 < 0) {
 			dirP13 = -1;
 		}
 
+		let dirP14 = 1;
 		if(_angle14 - angleP14 < 0) {
 			dirP14 = -1;
 		}
 
+		let dirP15 = 1;
 		if(_angle15 - angleP15 < 0) {
 			dirP15 = -1;
 		}
@@ -198,17 +198,18 @@ namespace artecrobo {
 	    maxData = Math.max(maxData, diffP15);
 
 	    let divideP13 = 0;
-	    let divideP14 = 0;
-	    let divideP15 = 0;
-
 	    if (diffP13 != 0) {
-			let divideP13 = maxData / diffP13;	// 1度変化させる間隔
+			divideP13 = maxData / diffP13;	// 1度変化させる間隔
 	    }
+
+	    let divideP14 = 0;
 	    if (diffP14 != 0) {
-			let divideP14 = maxData / diffP14;	// 1度変化させる間隔
+			divideP14 = maxData / diffP14;	// 1度変化させる間隔
 	    }
+
+	    let divideP15 = 0;
 	    if (diffP15 != 0) {
-			let divideP15 = maxData / diffP15;	// 1度変化させる間隔
+			divideP15 = maxData / diffP15;	// 1度変化させる間隔
 		}
 
 		for(let i = 0; i <= maxData; i++ ) {
