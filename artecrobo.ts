@@ -41,16 +41,16 @@ namespace artecrobo {
 
 	// Move DC motor
 	//% blockId=artec_move_dc_motor
-	//% block="Set DC motor %connector|to %motion"
-	export function moveDCMotor(connector: connectorDCMotor, motion: DCmotion): void {
-		switch(motion) {
+	//% block="DC motor %_connector| motion: %_motion"
+	export function moveDCMotor(_connector: connectorDCMotor, _motion: DCmotion): void {
+		switch(_motion) {
 			case DCmotion.Forward:
 				/*
 					Move Forward
 					M1:P8 = speed, P12 = 0
 					M2:P0 = speed, P16 = 0
 				*/
-				if (connector == connectorDCMotor.M1) {
+				if (_connector == connectorDCMotor.M1) {
 					pins.digitalWritePin(DigitalPin.P8, 1);
 					pins.analogWritePin(AnalogPin.P12, speedM1);
 				} else {
@@ -64,7 +64,7 @@ namespace artecrobo {
 					M1:P8 = 0, P12 = speeed
 					M2:P0 = 0, P16 = speeed
 				*/
-				if (connector == connectorDCMotor.M1) {
+				if (_connector == connectorDCMotor.M1) {
 					pins.analogWritePin(AnalogPin.P8, speedM1);
 					pins.digitalWritePin(DigitalPin.P12, 1);
 				} else {
@@ -78,7 +78,7 @@ namespace artecrobo {
 					M1:P8 = 1, P12 = 1
 					M2:P0 = 1, P16 = 1
 				*/
-				if (connector == connectorDCMotor.M1) {
+				if (_connector == connectorDCMotor.M1) {
 					pins.digitalWritePin(DigitalPin.P8, 1);
 					pins.digitalWritePin(DigitalPin.P12, 1);
 				} else {
@@ -92,7 +92,7 @@ namespace artecrobo {
 					M1:P8 = 0, P12 = 0
 					M2:P0 = 0, P16 = 0
 				*/
-				if (connector == connectorDCMotor.M1) {
+				if (_connector == connectorDCMotor.M1) {
 					pins.digitalWritePin(DigitalPin.P8, 0);
 					pins.digitalWritePin(DigitalPin.P12, 0);
 				} else {
@@ -105,16 +105,16 @@ namespace artecrobo {
 	}
 
 	//% blockId=artec_set_speed_dc_motor
-	//% block="Set DC motor %connector| speed as %speed"
+	//% block="DC motor %connector| speed: %speed"
 	//% speed.min=0 speed.max= 1023
-	export function setSpeedDCMotor(connector: connectorDCMotor, speed: number): void {
-		if (connector == connectorDCMotor.M1) {
-			speedM1 = 1023 - speed;
+	export function setSpeedDCMotor(_connector: connectorDCMotor, _speed: number): void {
+		if (_connector == connectorDCMotor.M1) {
+			speedM1 = 1023 - _speed;
 		} else {
-			speedM2 = 1023 - speed;
+			speedM2 = 1023 - _speed;
 		}
 		if (state == DCmotion.Forward || state == DCmotion.Backward) {
-			moveDCMotor(connector, state);
+			moveDCMotor(_connector, state);
 		}
 	}
 
@@ -124,7 +124,7 @@ namespace artecrobo {
 	let angleP15 = 0;
     //% weight=84
 	//% blockId=artec_move_servo_motor
-	//% block="Set servomotor %connector| to %angle| degree by speed %_speed"
+	//% block="move servo pin %connector| to (degree) %angle| speed: %_speed"
 	//% speed.min=0 speed.max= 1023
 	export function moveServoMotor(_connector: connectorServoMotor, _angle: number, _speed: number): void {
 		switch (_connector) {
@@ -150,7 +150,7 @@ namespace artecrobo {
 	 */
     //% weight=84
     //% blockId=artec_async_move_servo_motor
-    //% block="Move servomotor synchronously| speed as %_speed| Angle of P13:%_angle13| Angle of P14:%_angle14 |Angle of P15:%_angle15"
+    //% block="move servo synchronously | speed: %_speed| P13 (degere): %_angle13| P14 (degere): %_angle14 |P15 (degere): %_angle15"
     //% _speed.min=1 _speed.max=20
     //% _angle13.min=0 _angle13.max=180
     //% _angle14.min=0 _angle14.max=180

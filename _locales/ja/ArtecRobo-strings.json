@@ -1,15 +1,16 @@
 {
-  "DCmotion.Forward|block": "正転",
-  "DCmotion.Backward|block": "逆転",
-  "DCmotion.Brake|block": "停止",
-  "DCmotion.Coast|block": "解放",
-  "connectorDCMotor.M1|block": "M1",
-  "connectorDCMotor.M2|block": "M2",
-  "connectorServoMotor.P13|block": "P13",
-  "connectorServoMotor.P14|block": "P14",
-  "connectorServoMotor.P15|block": "P15",
-  "artecrobo.moveDCMotor|block": "DC motor %connector|を %motion|にする",
-  "artecrobo.setSpeedDCMotor|block": "DC motor %connector|の速さを %speed|にする",
-  "artecrobo.moveServoMotor|block": "Servo motor %connector|の角度を %angle|にする",
-  "artecrobo.AsyncMoveServoMotor|block": "Move Servo motorを同時に動かす| 速さ %_speed |P13のサーボモーターの角度 %_angle13 |P14のサーボモーターの角度 %_angle14 |P15のサーボモーターの角度 %_angle15"
+  "DCmotion.Forward|block": "正転"
+  ,"DCmotion.Backward|block": "逆転"
+  ,"DCmotion.Brake|block": "停止"
+  ,"DCmotion.Coast|block": "解放"
+  ,"connectorDCMotor.M1|block": "M1"
+  ,"connectorDCMotor.M2|block": "M2"
+  ,"connectorServoMotor.P13|block": "P13"
+  ,"connectorServoMotor.P14|block": "P14"
+  ,"connectorServoMotor.P15|block": "P15"
+  ,"artecrobo.moveDCMotor|block": "DC motor %_connector|を %_motion|にする"
+  ,"artecrobo.setSpeedDCMotor|block": "DC motor %_connector|の速さを %_speed|にする"
+  ,"artecrobo.moveServoMotor|block": "サーボモーター %_connector| を %_angle|（度）にする 速度： %_speed"
+  ,"artecrobo.AsyncMoveServoMotor|block": "サーボモーターを同時に動かす| 速さ: %_speed |P13の角度: %_angle13 |P14の角度: %_angle14 |P15の角度: %_angle15"
 }
+  //% block="Set servomotor %connector| to %angle| degree by speed %_speed"
