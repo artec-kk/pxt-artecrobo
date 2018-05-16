@@ -126,17 +126,17 @@ namespace artecrobo {
 	export function moveServoMotor(_connector: connectorServoMotor, _angle: number, _speed: number): void {
 		switch (_connector) {
 			case connectorServoMotor.P13:
-				moveservo (AnalogPin.P13, angleP13, _angle, _speed);
+				// moveservo (AnalogPin.P13, angleP13, _angle, _speed);
 		 		// pins.servoWritePin(AnalogPin.P13, _angle);
 		 		angleP13 = _angle;
 		 		break;
 			case connectorServoMotor.P14:
-				moveservo (AnalogPin.P14, angleP14, _angle, _speed);
+				// moveservo (AnalogPin.P14, angleP14, _angle, _speed);
 		 		// pins.servoWritePin(AnalogPin.P14, _angle);
 		 		angleP14 = _angle;
 		 		break;
 			case connectorServoMotor.P15:
-				moveservo (AnalogPin.P15, angleP15, _angle, _speed);
+				// moveservo (AnalogPin.P15, angleP15, _angle, _speed);
 		 		// pins.servoWritePin(AnalogPin.P15, _angle);
 		 		angleP15 = _angle;
 		 		break;
@@ -145,17 +145,19 @@ namespace artecrobo {
 		}
 	}
 
-	function moveservo (_pin: AnalogPin, _FromAngle: number, _ToAngle: number, _speed: number) {
-		let interval = Math.abs(_speed - 20) + 3;
-		let dir = 1;
-		if(_FromAngle - _ToAngle < 0) {
-			dir= -1;
-		}
-		let diff = Math.abs(_FromAngle - _ToAngle);
-		for(let i = 0; i <= diff; i++ ) {
-			pins.servoWritePin(_pin, _FromAngle + dir);
-		}
-	}
+	// function moveservo (_pin: AnalogPin, _FromAngle: number, _ToAngle: number, _speed: number) {
+	// 	let interval = Math.abs(_speed - 20) + 3;
+	// 	let dir = 1;
+	// 	if(_FromAngle - _ToAngle < 0) {
+	// 		dir = -1;
+	// 	}
+	// 	let diff = Math.abs(_FromAngle - _ToAngle);
+	// 	for(let i = 0; i < diff; i++ ) {
+	// 		_FromAngle = _FromAngle + dir
+	// 		pins.servoWritePin(_pin, _FromAngle);
+	// 		basic.pause(interval);
+	// 	}
+	// }
 
 	/**
 	 * Move Servo Motor Async.
