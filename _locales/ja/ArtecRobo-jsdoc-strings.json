@@ -3,5 +3,5 @@
   "artecrobo.moveDCMotor|block": "Assign DC motor movemnet.",
   "artecrobo.setSpeedDCMotor|block": "Set DC motor speed.",
   "artecrobo.moveServoMotor|block": "サーボモーターを指定の角度に動かす",
-  "artecrobo.AsyncMoveServoMotor|block": "複数のサーボモーターを同時に動かす",
+  "artecrobo.AsyncMoveServoMotor|block": "複数のサーボモーターを同時に動かす"
 }
