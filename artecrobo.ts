@@ -122,10 +122,9 @@ namespace artecrobo {
 	let angleP13 = 0;
 	let angleP14 = 0;
 	let angleP15 = 0;
-    //% weight=84
 	//% blockId=artec_move_servo_motor
 	//% block="move servo pin %connector| to (degree) %angle| speed: %_speed"
-	//% speed.min=0 speed.max= 1023
+	//% speed.min=1 speed.max= 20
 	export function moveServoMotor(_connector: connectorServoMotor, _angle: number, _speed: number): void {
 		switch (_connector) {
 			case connectorServoMotor.P13:
