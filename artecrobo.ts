@@ -147,13 +147,14 @@ namespace artecrobo {
 	}
 
 	function moveservo (_pin: AnalogPin, _FromAngle: number, _ToAngle: number, _speed: number): void {
+		const diff = Math.abs(_FromAngle - _ToAngle);
+		if (diff == 0) return;
+
 		const interval = Math.abs(_speed - 20) + 3;
 		let dir = 1;
 		if(_FromAngle - _ToAngle < 0) {
 			dir = -1;
 		}
-		const diff = Math.abs(_FromAngle - _ToAngle);
-		if (diff == 0) return;
 		for(let i = 0; i < diff; i++ ) {
 			_FromAngle = _FromAngle + dir;
 			pins.servoWritePin(_pin, _FromAngle);
@@ -215,7 +216,7 @@ namespace artecrobo {
 			divideP15 = maxData / diffP15;  // 1度変化させる間隔
 		}
 
-		for(let i = 0; i <= maxData; i++ ) {
+		for(let i = 0; i < maxData; i++ ) {
 			if (diffP13 != 0) {
 				if( i % divideP13 == 0 ){
 					angleP13 = angleP13 + dirP13;
@@ -240,8 +241,8 @@ namespace artecrobo {
 		angleP13 = _angle13;
 		angleP14 = _angle14;
 		angleP15 = _angle15;
-		if (diffP13 != 0) pins.servoWritePin(AnalogPin.P13, angleP13);
-		if (diffP14 != 0) pins.servoWritePin(AnalogPin.P14, angleP14);
-		if (diffP15 != 0) pins.servoWritePin(AnalogPin.P15, angleP15);
+		// if (diffP13 != 0) pins.servoWritePin(AnalogPin.P13, angleP13);
+		// if (diffP14 != 0) pins.servoWritePin(AnalogPin.P14, angleP14);
+		// if (diffP15 != 0) pins.servoWritePin(AnalogPin.P15, angleP15);
 	}
 }
