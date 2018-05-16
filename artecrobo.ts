@@ -147,12 +147,12 @@ namespace artecrobo {
 	}
 
 	function moveservo (_pin: AnalogPin, _FromAngle: number, _ToAngle: number, _speed: number): void {
-		const diff = Math.abs(_FromAngle - _ToAngle);
+		const diff = Math.abs(_ToAngle - _FromAngle );
 		if (diff == 0) return;
 
 		const interval = Math.abs(_speed - 20) + 3;
 		let dir = 1;
-		if(_FromAngle - _ToAngle < 0) {
+		if(_ToAngle - _FromAngle < 0) {
 			dir = -1;
 		}
 		for(let i = 1; i <= diff; i++ ) {
@@ -181,17 +181,17 @@ namespace artecrobo {
 		const interval = Math.abs(_speed - 20) + 3;
 		// サーボモーターを動かす方向
 		let dirP13 = 1;
-		if(angleP13 - _angle13 < 0) {
+		if(_angle13 - angleP13 < 0) {
 			dirP13 = -1;
 		}
 
 		let dirP14 = 1;
-		if(angleP14 - _angle14 < 0) {
+		if(_angle14 - angleP14 < 0) {
 			dirP14 = -1;
 		}
 
 		let dirP15 = 1;
-		if(angleP15 - _angle15 < 0) {
+		if(_angle15 - angleP15 < 0) {
 			dirP15 = -1;
 		}
 
