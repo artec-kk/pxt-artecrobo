@@ -23,9 +23,9 @@ enum connectorServoMotor {
 	//% block="P13"
 	P13 = AnalogPin.P13,
 	//% block="P14"
-	P14 =  AnalogPin.P14,
+	P14 = AnalogPin.P14,
 	//% block="P15"
-	P15 =  AnalogPin.P15
+	P15 = AnalogPin.P15
 }
 
 /**
@@ -117,9 +117,13 @@ namespace artecrobo {
 			moveDCMotor(_connector, state);
 		}
 	}
-	let angleP13 = 0;
-	let angleP14 = 0;
-	let angleP15 = 0;
+	let angleP13 = 90;
+	let angleP14 = 90;
+	let angleP15 = 90;
+	pins.servoWritePin(AnalogPin.P13, angleP13);
+	pins.servoWritePin(AnalogPin.P14, angleP14);
+	pins.servoWritePin(AnalogPin.P15, angleP15);
+
 	//% blockId=artec_move_servo_motor
 	//% block="move servo pin %_connector| to (degree) %_angle| speed: %_speed"
 	//% _speed.min=1 _speed.max= 20
