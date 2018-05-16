@@ -11,6 +11,6 @@
   ,"artecrobo.moveDCMotor|block": "DC motor %_connector|を %_motion|にする"
   ,"artecrobo.setSpeedDCMotor|block": "DC motor %_connector|の速さを %_speed|にする"
   ,"artecrobo.moveServoMotor|block": "サーボモーター %_connector| を %_angle|（度）にする 速度： %_speed"
-  ,"artecrobo.AsyncMoveServoMotor|block": "サーボモーターを同時に動かす| 速さ: %_speed |P13の角度: %_angle13 |P14の角度: %_angle14 |P15の角度: %_angle15"
+  ,"artecrobo.AsyncMoveServoMotor|block": "サーボモーターを同時に動かす| 速さ: %_speed| P13の角度: %_angle13| P14の角度: %_angle14| P15の角度: %_angle15"
 }
   //% block="Set servomotor %connector| to %angle| degree by speed %_speed"
