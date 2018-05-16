@@ -153,6 +153,7 @@ namespace artecrobo {
 			dir = -1;
 		}
 		const diff = Math.abs(_FromAngle - _ToAngle);
+		if (diff = 0) return;
 		for(let i = 0; i < diff; i++ ) {
 			_FromAngle = _FromAngle + dir;
 			pins.servoWritePin(_pin, _FromAngle);
