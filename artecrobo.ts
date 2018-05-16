@@ -155,7 +155,7 @@ namespace artecrobo {
 		if(_FromAngle - _ToAngle < 0) {
 			dir = -1;
 		}
-		for(let i = 0; i < diff; i++ ) {
+		for(let i = 1; i <= diff; i++ ) {
 			_FromAngle = _FromAngle + dir;
 			pins.servoWritePin(_pin, _FromAngle);
 			basic.pause(interval);
@@ -216,7 +216,7 @@ namespace artecrobo {
 			divideP15 = maxData / diffP15;  // 1度変化させる間隔
 		}
 
-		for(let i = 0; i < maxData; i++ ) {
+		for(let i = 1; i <= maxData; i++ ) {
 			if (diffP13 != 0) {
 				if( i % divideP13 == 0 ){
 					angleP13 = angleP13 + dirP13;
