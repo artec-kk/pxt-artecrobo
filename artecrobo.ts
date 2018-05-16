@@ -175,71 +175,71 @@ namespace artecrobo {
 	//% _angle15.min=0 _angle15.max=180
 	export function AsyncMoveServoMotor(_speed: number,  _angle13: number,  _angle14: number, _angle15: number): void {
 
-		const interval = Math.abs(_speed - 20) + 3;
-		// サーボモーターを動かす方向
-		let dirP13 = 1;
-		if(_angle13 - angleP13 < 0) {
-			dirP13 = -1;
-		}
+		// const interval = Math.abs(_speed - 20) + 3;
+		// // サーボモーターを動かす方向
+		// let dirP13 = 1;
+		// if(_angle13 - angleP13 < 0) {
+		// 	dirP13 = -1;
+		// }
 
-		let dirP14 = 1;
-		if(_angle14 - angleP14 < 0) {
-			dirP14 = -1;
-		}
+		// let dirP14 = 1;
+		// if(_angle14 - angleP14 < 0) {
+		// 	dirP14 = -1;
+		// }
 
-		let dirP15 = 1;
-		if(_angle15 - angleP15 < 0) {
-			dirP15 = -1;
-		}
+		// let dirP15 = 1;
+		// if(_angle15 - angleP15 < 0) {
+		// 	dirP15 = -1;
+		// }
 
-		const diffP13 = Math.abs(_angle13 - angleP13);    // 変化量
-		const diffP14 = Math.abs(_angle14 - angleP14);    // 変化量
-		const diffP15 = Math.abs(_angle15 - angleP15);    // 変化量
-		let maxData = Math.max(diffP13, diffP14);
-		maxData = Math.max(maxData, diffP15);
+		// const diffP13 = Math.abs(_angle13 - angleP13);    // 変化量
+		// const diffP14 = Math.abs(_angle14 - angleP14);    // 変化量
+		// const diffP15 = Math.abs(_angle15 - angleP15);    // 変化量
+		// let maxData = Math.max(diffP13, diffP14);
+		// maxData = Math.max(maxData, diffP15);
 
-		let divideP13 = 0;
-		if (diffP13 != 0) {
-			divideP13 = maxData / diffP13;  // 1度変化させる間隔
-		}
+		// let divideP13 = 0;
+		// if (diffP13 != 0) {
+		// 	divideP13 = maxData / diffP13;  // 1度変化させる間隔
+		// }
 
-		let divideP14 = 0;
-		if (diffP14 != 0) {
-			divideP14 = maxData / diffP14;  // 1度変化させる間隔
-		}
+		// let divideP14 = 0;
+		// if (diffP14 != 0) {
+		// 	divideP14 = maxData / diffP14;  // 1度変化させる間隔
+		// }
 
-		let divideP15 = 0;
-		if (diffP15 != 0) {
-			divideP15 = maxData / diffP15;  // 1度変化させる間隔
-		}
+		// let divideP15 = 0;
+		// if (diffP15 != 0) {
+		// 	divideP15 = maxData / diffP15;  // 1度変化させる間隔
+		// }
 
-		for(let i = 0; i <= maxData; i++ ) {
-			if (diffP13 != 0) {
-				if( i % divideP13 == 0 ){
-					angleP13 = angleP13 + dirP13;
-					pins.servoWritePin(AnalogPin.P13, angleP13);
-				}
-			}
-			if (diffP14 != 0) {
-				if( i % divideP14 == 0 ){
-					angleP14 = angleP14 + dirP14;
-					pins.servoWritePin(AnalogPin.P14, angleP14);
-				}
-			}
-			if (diffP15 != 0) {
-				if( i % divideP15 == 0 ){
-					angleP15 = angleP15 + dirP15;
-					pins.servoWritePin(AnalogPin.P15, angleP15);
-				}
-			}
-			basic.pause(interval);
-		}
-		// 最後に全部そろえる。
-		angleP13 = _angle13;
-		angleP14 = _angle14;
-		angleP15 = _angle15;
-		if (diffP13 != 0) pins.servoWritePin(AnalogPin.P13, angleP13);
-		if (diffP14 != 0) pins.servoWritePin(AnalogPin.P14, angleP14);
-		if (diffP15 != 0) pins.servoWritePin(AnalogPin.P15, angleP15);
+		// for(let i = 0; i <= maxData; i++ ) {
+		// 	if (diffP13 != 0) {
+		// 		if( i % divideP13 == 0 ){
+		// 			angleP13 = angleP13 + dirP13;
+		// 			pins.servoWritePin(AnalogPin.P13, angleP13);
+		// 		}
+		// 	}
+		// 	if (diffP14 != 0) {
+		// 		if( i % divideP14 == 0 ){
+		// 			angleP14 = angleP14 + dirP14;
+		// 			pins.servoWritePin(AnalogPin.P14, angleP14);
+		// 		}
+		// 	}
+		// 	if (diffP15 != 0) {
+		// 		if( i % divideP15 == 0 ){
+		// 			angleP15 = angleP15 + dirP15;
+		// 			pins.servoWritePin(AnalogPin.P15, angleP15);
+		// 		}
+		// 	}
+		// 	basic.pause(interval);
+		// }
+		// // 最後に全部そろえる。
+		// angleP13 = _angle13;
+		// angleP14 = _angle14;
+		// angleP15 = _angle15;
+		// if (diffP13 != 0) pins.servoWritePin(AnalogPin.P13, angleP13);
+		// if (diffP14 != 0) pins.servoWritePin(AnalogPin.P14, angleP14);
+		// if (diffP15 != 0) pins.servoWritePin(AnalogPin.P15, angleP15);
 	}
 }
