@@ -156,7 +156,7 @@ namespace artecrobo {
 			dir = -1;
 		}
 		for(let i = 0; i < diff; i++ ) {
-			_FromAngle = _FromAngle + dir;
+			_FromAngle += dir;
 			pins.servoWritePin(_pin, _FromAngle);
 			basic.pause(interval);
 		}
@@ -201,37 +201,34 @@ namespace artecrobo {
 		let maxData = Math.max(diffP13, diffP14);
 		maxData = Math.max(maxData, diffP15);
 
-		let divideP13 = 0;
 		if (diffP13 != 0) {
-			divideP13 = maxData / diffP13;  // 1度変化させる間隔
+			let divideP13 = maxData / diffP13;  // 1度変化させる間隔
 		}
 
-		let divideP14 = 0;
 		if (diffP14 != 0) {
-			divideP14 = maxData / diffP14;  // 1度変化させる間隔
+			let divideP14 = maxData / diffP14;  // 1度変化させる間隔
 		}
 
-		let divideP15 = 0;
 		if (diffP15 != 0) {
-			divideP15 = maxData / diffP15;  // 1度変化させる間隔
+			let divideP15 = maxData / diffP15;  // 1度変化させる間隔
 		}
 
 		for(let i = 0; i < maxData; i++ ) {
 			if (diffP13 != 0) {
 				if( i % divideP13 == 0 ){
-					angleP13 = angleP13 + dirP13;
+					angleP13 += dirP13;
 					pins.servoWritePin(AnalogPin.P13, angleP13);
 				}
 			}
 			if (diffP14 != 0) {
 				if( i % divideP14 == 0 ){
-					angleP14 = angleP14 + dirP14;
+					angleP14 += dirP14;
 					pins.servoWritePin(AnalogPin.P14, angleP14);
 				}
 			}
 			if (diffP15 != 0) {
 				if( i % divideP15 == 0 ){
-					angleP15 = angleP15 + dirP15;
+					angleP15 += dirP15;
 					pins.servoWritePin(AnalogPin.P15, angleP15);
 				}
 			}
