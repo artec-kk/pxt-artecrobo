@@ -2,29 +2,29 @@
  * Types of DC motor control
  */
 enum DCmotion {
-	//% block= Forward
+	//% block="Forward"
 	Forward,
-	//% block= Backward
+	//% block="Backward"
 	Backward,
-	//% block= Brake
+	//% block="Brake"
 	Brake,
-	//% block= Coast
+	//% block="Coast"
 	Coast
 }
 
 enum connectorDCMotor {
-	//% block= M1
+	//% block="M1"
 	M1,
-	//% block= M2
+	//% block="M2"
 	M2
 }
 
 enum connectorServoMotor {
-	//% block= P13
+	//% block="P13"
 	P13 = AnalogPin.P13,
-	//% block= P14
+	//% block="P14"
 	P14 =  AnalogPin.P14,
-	//% block= P15
+	//% block="P15"
 	P15 =  AnalogPin.P15
 }
 
