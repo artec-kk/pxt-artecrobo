@@ -117,8 +117,6 @@ namespace artecrobo {
 			moveDCMotor(_connector, state);
 		}
 	}
-
-
 	let angleP13 = 0;
 	let angleP14 = 0;
 	let angleP15 = 0;
@@ -147,7 +145,7 @@ namespace artecrobo {
 		}
 	}
 
-	function moveservo (_pnin: AnalogPin, _FromAngle: number, _ToAngle: number, _speed: number) {
+	function moveservo (_pin: AnalogPin, _FromAngle: number, _ToAngle: number, _speed: number) {
 		let interval = Math.abs(_speed - 20) + 3;
 		let dir = 1;
 		if(_FromAngle - _ToAngle < 0) {
