@@ -9,6 +9,7 @@
   "connectorServoMotor.P14|block": "P14",
   "connectorServoMotor.P15|block": "P15",
   "artecrobo.moveDCMotor|block": "DC motor %connector|を %motion|にする",
-  "artecrobo.setSpeedDCMotor|block": "DC motor %connector|の速さを %speed|にする"
-  "artecrobo.moveServoMotor|block": "Servo motor %connector|の角度を %angle|にする"
+  "artecrobo.setSpeedDCMotor|block": "DC motor %connector|の速さを %speed|にする",
+  "artecrobo.moveServoMotor|block": "Servo motor %connector|の角度を %angle|にする",
+  "artecrobo.AsyncMoveServoMotor|block": "Move Servo motorを同時に動かす| 速さ %_speed |P13のサーボモーターの角度 %_angle13 |P14のサーボモーターの角度 %_angle14 |P15のサーボモーターの角度 %_angle15",
 }
