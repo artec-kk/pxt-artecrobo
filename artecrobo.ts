@@ -108,14 +108,14 @@ namespace artecrobo {
 	//% block="DC motor %_connector| speed: %_speed"
 	//% speed.min=0 speed.max= 1023
 	export function setSpeedDCMotor(_connector: connectorDCMotor, _speed: number): void {
-		if (_connector == connectorDCMotor.M1) {
-			speedM1 = 1023 - _speed;
-		} else {
-			speedM2 = 1023 - _speed;
-		}
-		if (state == DCmotion.Forward || state == DCmotion.Backward) {
-			moveDCMotor(_connector, state);
-		}
+		// if (_connector == connectorDCMotor.M1) {
+		// 	speedM1 = 1023 - _speed;
+		// } else {
+		// 	speedM2 = 1023 - _speed;
+		// }
+		// if (state == DCmotion.Forward || state == DCmotion.Backward) {
+		// 	moveDCMotor(_connector, state);
+		// }
 	}
 	let angleP13 = 0;
 	let angleP14 = 0;
