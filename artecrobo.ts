@@ -1,4 +1,9 @@
 /**
+ * ArtecRobo control package
+ */
+//% color=190 weight=100 icon="\uf009" block="ArtecRobo"
+namespace artecrobo {
+/**
  * Types of DC motor control
  */
 enum DCmotion {
@@ -27,12 +32,6 @@ enum connectorServoMotor {
 	//% block= P15
 	P15 =  AnalogPin.P15
 }
-
-/**
- * ArtecRobo control package
- */
-//% color=190 weight=100 icon="\uf009" block="ArtecRobo"
-namespace artecrobo {
 
 	/* spped initial value */
 	let speedM1 = 1023;
