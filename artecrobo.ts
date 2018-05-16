@@ -127,17 +127,17 @@ namespace artecrobo {
 		switch (_connector) {
 			case connectorServoMotor.P13:
 				// moveservo (AnalogPin.P13, angleP13, _angle, _speed);
-		 		// pins.servoWritePin(AnalogPin.P13, _angle);
+		 		pins.servoWritePin(AnalogPin.P13, _angle);
 		 		angleP13 = _angle;
 		 		break;
 			case connectorServoMotor.P14:
 				// moveservo (AnalogPin.P14, angleP14, _angle, _speed);
-		 		// pins.servoWritePin(AnalogPin.P14, _angle);
+		 		pins.servoWritePin(AnalogPin.P14, _angle);
 		 		angleP14 = _angle;
 		 		break;
 			case connectorServoMotor.P15:
 				// moveservo (AnalogPin.P15, angleP15, _angle, _speed);
-		 		// pins.servoWritePin(AnalogPin.P15, _angle);
+		 		pins.servoWritePin(AnalogPin.P15, _angle);
 		 		angleP15 = _angle;
 		 		break;
 		 	default:
