@@ -127,21 +127,21 @@ namespace artecrobo {
 		switch (_connector) {
 			case connectorServoMotor.P13:
 				moveservo (AnalogPin.P13, angleP13, _angle, _speed);
-		 		// pins.servoWritePin(AnalogPin.P13, _angle);
-		 		angleP13 = _angle;
-		 		break;
+				// pins.servoWritePin(AnalogPin.P13, _angle);
+				angleP13 = _angle;
+				break;
 			case connectorServoMotor.P14:
 				moveservo (AnalogPin.P14, angleP14, _angle, _speed);
-		 		// pins.servoWritePin(AnalogPin.P14, _angle);
-		 		angleP14 = _angle;
-		 		break;
+				// pins.servoWritePin(AnalogPin.P14, _angle);
+				angleP14 = _angle;
+				break;
 			case connectorServoMotor.P15:
 				moveservo (AnalogPin.P15, angleP15, _angle, _speed);
-		 		// pins.servoWritePin(AnalogPin.P15, _angle);
-		 		angleP15 = _angle;
-		 		break;
-		 	default:
-		 		break;
+				// pins.servoWritePin(AnalogPin.P15, _angle);
+				angleP15 = _angle;
+				break;
+			default:
+				break;
 		}
 	}
 
@@ -151,7 +151,7 @@ namespace artecrobo {
 		if(_FromAngle - _ToAngle < 0) {
 			dir = -1;
 		}
-		let diff = Math.abs(_FromAngle - _ToAngle);
+		const diff = Math.abs(_FromAngle - _ToAngle);
 		for(let i = 0; i < diff; i++ ) {
 			_FromAngle = _FromAngle + dir
 			pins.servoWritePin(_pin, _FromAngle);
@@ -162,19 +162,16 @@ namespace artecrobo {
 	/**
 	 * Move Servo Motor Async.
 	 */
-    //% weight=84
-    //% blockId=artec_async_move_servo_motor
-    //% block="move servo synchronously | speed: %_speed| P13 (degere): %_angle13| P14 (degere): %_angle14 |P15 (degere): %_angle15"
-    //% _speed.min=1 _speed.max=20
-    //% _angle13.min=0 _angle13.max=180
-    //% _angle14.min=0 _angle14.max=180
-    //% _angle15.min=0 _angle15.max=180
-	export function AsyncMoveServoMotor(_speed: number
-										,  _angle13: number
-										,  _angle14: number
-										, _angle15: number): void {
+	//% weight=84
+	//% blockId=artec_async_move_servo_motor
+	//% block="move servo synchronously | speed: %_speed| P13 (degere): %_angle13| P14 (degere): %_angle14 |P15 (degere): %_angle15"
+	//% _speed.min=1 _speed.max=20
+	//% _angle13.min=0 _angle13.max=180
+	//% _angle14.min=0 _angle14.max=180
+	//% _angle15.min=0 _angle15.max=180
+	export function AsyncMoveServoMotor(_speed: number,  _angle13: number,  _angle14: number, _angle15: number): void {
 
-		let interval = Math.abs(_speed - 20) + 3;
+		const interval = Math.abs(_speed - 20) + 3;
 		// サーボモーターを動かす方向
 		let dirP13 = 1;
 		if(_angle13 - angleP13 < 0) {
@@ -191,25 +188,25 @@ namespace artecrobo {
 			dirP15 = -1;
 		}
 
-		let diffP13 = Math.abs(_angle13 - angleP13);	// 変化量
-		let diffP14 = Math.abs(_angle14 - angleP14);	// 変化量
-		let diffP15 = Math.abs(_angle15 - angleP15);	// 変化量
-	    let maxData = Math.max(diffP13, diffP14);
-	    maxData = Math.max(maxData, diffP15);
+		const diffP13 = Math.abs(_angle13 - angleP13);    // 変化量
+		const diffP14 = Math.abs(_angle14 - angleP14);    // 変化量
+		const diffP15 = Math.abs(_angle15 - angleP15);    // 変化量
+		let maxData = Math.max(diffP13, diffP14);
+		maxData = Math.max(maxData, diffP15);
 
-	    let divideP13 = 0;
-	    if (diffP13 != 0) {
-			divideP13 = maxData / diffP13;	// 1度変化させる間隔
-	    }
+		let divideP13 = 0;
+		if (diffP13 != 0) {
+			divideP13 = maxData / diffP13;  // 1度変化させる間隔
+		}
 
-	    let divideP14 = 0;
-	    if (diffP14 != 0) {
-			divideP14 = maxData / diffP14;	// 1度変化させる間隔
-	    }
+		let divideP14 = 0;
+		if (diffP14 != 0) {
+			divideP14 = maxData / diffP14;  // 1度変化させる間隔
+		}
 
-	    let divideP15 = 0;
-	    if (diffP15 != 0) {
-			divideP15 = maxData / diffP15;	// 1度変化させる間隔
+		let divideP15 = 0;
+		if (diffP15 != 0) {
+			divideP15 = maxData / diffP15;  // 1度変化させる間隔
 		}
 
 		for(let i = 0; i <= maxData; i++ ) {
