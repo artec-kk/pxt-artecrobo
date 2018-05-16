@@ -123,21 +123,21 @@ namespace artecrobo {
 	let angleP14 = 0;
 	let angleP15 = 0;
 	//% blockId=artec_move_servo_motor
-	//% block="Move Serve Motor %connector| angle as %angle"
+	//% block="Move Serve Motor %connector| angle as %angle| speed by as %_speed"
 	//% speed.min=0 speed.max= 1023
-	export function moveServoMotor(connector: connectorServoMotor, angle: number): void {
-		switch (connector) {
+	export function moveServoMotor(_connector: connectorServoMotor, _angle: number, _speed: number): void {
+		switch (_connector) {
 			case connectorServoMotor.P13:
-		 		pins.servoWritePin(AnalogPin.P13, angle);
-		 		angleP13 = angle;
+		 		pins.servoWritePin(AnalogPin.P13, _angle);
+		 		angleP13 = _angle;
 		 		break;
 			case connectorServoMotor.P14:
-		 		pins.servoWritePin(AnalogPin.P14, angle);
-		 		angleP14 = angle;
+		 		pins.servoWritePin(AnalogPin.P14, _angle);
+		 		angleP14 = _angle;
 		 		break;
 			case connectorServoMotor.P15:
-		 		pins.servoWritePin(AnalogPin.P15, angle);
-		 		angleP15 = angle;
+		 		pins.servoWritePin(AnalogPin.P15, _angle);
+		 		angleP15 = _angle;
 		 		break;
 		 	default:
 		 		break;
@@ -149,7 +149,7 @@ namespace artecrobo {
 	 */
     //% weight=84
     //% blockId=artec_async_move_servo_motor
-    //% block="Move Servo motor asynchronous| speed as %_speed |Servo motor P13 set angle as %_angle13 |Servo motor P13 set angle as %_angle14 |Servo motor P13 set angle as %_angle15"
+    //% block="Move Servo motor asynchronous| speed as %_speed |Servo motor P13 set angle as %_angle13 |Servo motor P14 set angle as %_angle14 |Servo motor P15 set angle as %_angle15"
     //% _speed.min=1 _speed.max=20
     //% _angle13.min=0 _angle13.max=180
     //% _angle14.min=0 _angle14.max=180
