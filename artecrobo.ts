@@ -146,14 +146,10 @@ namespace artecrobo {
 
 	/**
 	 * Move Servo Motor Async.
-	 * @param speed speed
-	 * @param angle13 ServoMotor Angle P13
-	 * @param angle14 ServoMotor Angle P14
-	 * @param angle15 ServoMotor Angle P15
 	 */
     //% weight=84
     //% blockId=artec_async_move_servo_motor
-    //% block="Move Servo motor asynchronous| speed as %_speed |%connectorP13|angle as %_angle13 |%connectorP14|angle as %_angle14 |%connectorP15|angle as %_angle15"
+    //% block="Move Servo motor asynchronous| speed as %_speed |Servo motor %connectorP13|angle as %_angle13 |Servo motor %connectorP14|angle as %_angle14 |Servo motor %connectorP15|angle as %_angle15"
     //% _speed.min=1 _speed.max=20
     //% _angle13.min=0 _angle13.max=180
     //% _angle14.min=0 _angle14.max=180
