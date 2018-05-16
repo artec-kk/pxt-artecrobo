@@ -149,15 +149,15 @@ namespace artecrobo {
 	 */
     //% weight=84
     //% blockId=artec_async_move_servo_motor
-    //% block="Move Servo motor asynchronous| speed as %_speed |Servo motor %connectorP13|angle as %_angle13 |Servo motor %connectorP14|angle as %_angle14 |Servo motor %connectorP15|angle as %_angle15"
+    //% block="Move Servo motor asynchronous| speed as %_speed |Servo motor P13 set angle as %_angle13 |Servo motor P13 set angle as %_angle14 |Servo motor P13 set angle as %_angle15"
     //% _speed.min=1 _speed.max=20
     //% _angle13.min=0 _angle13.max=180
     //% _angle14.min=0 _angle14.max=180
     //% _angle15.min=0 _angle15.max=180
 	export function AsyncMoveServoMotor(_speed: number
-										, connectorP13: connectorServoMotor, _angle13: number
-										, connectorP14: connectorServoMotor, _angle14: number
-										, connectorP15: connectorServoMotor, _angle15: number): void {
+										,  _angle13: number
+										,  _angle14: number
+										, _angle15: number): void {
 
 		let interval = Math.abs(_speed - 20) + 3;
 		// サーボモーターを動かす方向
