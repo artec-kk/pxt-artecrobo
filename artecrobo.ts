@@ -122,6 +122,7 @@ namespace artecrobo {
 	let angleP13 = 0;
 	let angleP14 = 0;
 	let angleP15 = 0;
+    //% weight=84
 	//% blockId=artec_move_servo_motor
 	//% block="Move Serve Motor %connector| angle as %angle| speed by as %_speed"
 	//% speed.min=0 speed.max= 1023
