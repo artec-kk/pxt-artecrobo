@@ -124,7 +124,7 @@ namespace artecrobo {
 	let angleP15 = 0;
     //% weight=84
 	//% blockId=artec_move_servo_motor
-	//% block="Move Serve Motor %connector| angle as %angle| speed by as %_speed"
+	//% block="Set servomotor %connector| to %angle| degree with speed %_speed"
 	//% speed.min=0 speed.max= 1023
 	export function moveServoMotor(_connector: connectorServoMotor, _angle: number, _speed: number): void {
 		switch (_connector) {
@@ -150,7 +150,7 @@ namespace artecrobo {
 	 */
     //% weight=84
     //% blockId=artec_async_move_servo_motor
-    //% block="Move Servo motor asynchronous| speed as %_speed |Servo motor P13 set angle as %_angle13 |Servo motor P14 set angle as %_angle14 |Servo motor P15 set angle as %_angle15"
+    //% block="Move servomotor synchronously| speed as %_speed |set P13 to %_angle13|degree| Servo motor P14 set angle as %_angle14 |Servo motor P15 set angle as %_angle15"
     //% _speed.min=1 _speed.max=20
     //% _angle13.min=0 _angle13.max=180
     //% _angle14.min=0 _angle14.max=180
