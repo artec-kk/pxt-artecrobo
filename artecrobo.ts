@@ -105,7 +105,7 @@ namespace artecrobo {
 	}
 
 	//% blockId=artec_set_speed_dc_motor
-	//% block="DC motor %connector| speed: %speed"
+	//% block="DC motor %_connector| speed: %_speed"
 	//% speed.min=0 speed.max= 1023
 	export function setSpeedDCMotor(_connector: connectorDCMotor, _speed: number): void {
 		if (_connector == connectorDCMotor.M1) {
@@ -123,7 +123,7 @@ namespace artecrobo {
 	let angleP14 = 0;
 	let angleP15 = 0;
 	//% blockId=artec_move_servo_motor
-	//% block="move servo pin %connector| to (degree) %angle| speed: %_speed"
+	//% block="move servo pin %_connector| to (degree) %_angle| speed: %_speed"
 	//% speed.min=1 speed.max= 20
 	export function moveServoMotor(_connector: connectorServoMotor, _angle: number, _speed: number): void {
 		switch (_connector) {
