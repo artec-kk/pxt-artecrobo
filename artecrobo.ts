@@ -131,17 +131,14 @@ namespace artecrobo {
 		switch (_connector) {
 			case connectorServoMotor.P13:
 				moveservo(AnalogPin.P13, angleP13, _angle, _speed);
-				// pins.servoWritePin(AnalogPin.P13, _angle);
 				angleP13 = _angle;
 				break;
 			case connectorServoMotor.P14:
 				moveservo(AnalogPin.P14, angleP14, _angle, _speed);
-				// pins.servoWritePin(AnalogPin.P14, _angle);
 				angleP14 = _angle;
 				break;
 			case connectorServoMotor.P15:
 				moveservo(AnalogPin.P15, angleP15, _angle, _speed);
-				// pins.servoWritePin(AnalogPin.P15, _angle);
 				angleP15 = _angle;
 				break;
 			default:
@@ -182,23 +179,23 @@ namespace artecrobo {
 		const interval = Math.abs(_speed - 20) + 3;
 		// サーボモーターを動かす方向
 		let dirP13 = 1;
-		if(_angle13 - angleP13 < 0) {
+		if(angleP13 - _angle13 < 0) {
 			dirP13 = -1;
 		}
 
 		let dirP14 = 1;
-		if(_angle14 - angleP14 < 0) {
+		if(angleP14 - _angle14 < 0) {
 			dirP14 = -1;
 		}
 
 		let dirP15 = 1;
-		if(_angle15 - angleP15 < 0) {
+		if(angleP15 - _angle15 < 0) {
 			dirP15 = -1;
 		}
 
-		const diffP13 = Math.abs(_angle13 - angleP13);    // 変化量
-		const diffP14 = Math.abs(_angle14 - angleP14);    // 変化量
-		const diffP15 = Math.abs(_angle15 - angleP15);    // 変化量
+		const diffP13 = Math.abs(angleP13 - _angle13);    // 変化量
+		const diffP14 = Math.abs(angleP14 - _angle14);    // 変化量
+		const diffP15 = Math.abs(angleP15 - _angle15);    // 変化量
 		let maxData = Math.max(diffP13, diffP14);
 		maxData = Math.max(maxData, diffP15);
 
