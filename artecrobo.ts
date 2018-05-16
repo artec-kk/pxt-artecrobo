@@ -158,7 +158,10 @@ namespace artecrobo {
     //% _angle13.min=0 _angle13.max=180
     //% _angle14.min=0 _angle14.max=180
     //% _angle15.min=0 _angle15.max=180
-	export function AsyncMoveServoMotor(_speed: number, _angle13: number, _angle14: number, _angle15: number, connectorP13: connectorServoMotor, connectorP14: connectorServoMotor, connectorP15: connectorServoMotor): void {
+	export function AsyncMoveServoMotor(_speed: number
+										, connectorP13: connectorServoMotor, _angle13: number
+										, connectorP14: connectorServoMotor, _angle14: number
+										, connectorP15: connectorServoMotor, _angle15: number): void {
 
 		let interval = Math.abs(_speed - 20) + 3;
 		// サーボモーターを動かす方向
