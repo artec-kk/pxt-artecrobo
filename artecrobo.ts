@@ -125,7 +125,7 @@ namespace artecrobo {
 	pins.servoWritePin(AnalogPin.P15, angleP15);
 
 	//% blockId=artec_move_servo_motor
-	//% block="move servo pin %_connector| to (degree) %_angle| speed: %_speed"
+	//% block="move servo pin %_connector| to (degrees) %_angle| speed: %_speed"
 	//% _speed.min=1 _speed.max= 20
 	export function moveServoMotor(_connector: connectorServoMotor, _angle: number, _speed: number): void {
 		switch (_connector) {
@@ -171,7 +171,7 @@ namespace artecrobo {
 	 */
 	//% weight=84
 	//% blockId=artec_async_move_servo_motor
-	//% block="move servo synchronously | speed: %_speed| P13 (degere): %_angle13| P14 (degere): %_angle14 |P15 (degere): %_angle15"
+	//% block="move servo synchronously | speed: %_speed| P13 (degrees): %_angle13| P14 (degrees): %_angle14 |P15 (degrees): %_angle15"
 	//% _speed.min=1 _speed.max=20
 	//% _angle13.min=0 _angle13.max=180
 	//% _angle14.min=0 _angle14.max=180
