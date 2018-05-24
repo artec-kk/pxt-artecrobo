@@ -108,6 +108,8 @@ namespace artecrobo {
 	//% block="DC motor %_connector| speed: %_speed"
 	//% _speed.min=0 _speed.max= 1023
 	export function setSpeedDCMotor(_connector: connectorDCMotor, _speed: number): void {
+		if (_speed < 0) _speed = 0;
+		if (_speed > 1023) _speed = 1023;
 		if (_connector == connectorDCMotor.M1) {
 			speedM1 = 1023 - _speed;
 		} else {
@@ -126,8 +128,13 @@ namespace artecrobo {
 
 	//% blockId=artec_move_servo_motor
 	//% block="move servo pin %_connector| to (degrees) %_angle| speed: %_speed"
+	//% _angle.min=0 _angle.max=180
 	//% _speed.min=1 _speed.max= 20
 	export function moveServoMotor(_connector: connectorServoMotor, _angle: number, _speed: number): void {
+		if (_speed < 0) _speed = 0;
+		if (_speed > 1023) _speed = 1023;
+		if (_angle < 0) _angle = 0;
+		if (_angle > 180) _angle = 180;
 		switch (_connector) {
 			case connectorServoMotor.P13:
 				moveservo(AnalogPin.P13, angleP13, _angle, _speed);
@@ -177,6 +184,14 @@ namespace artecrobo {
 	//% _angle14.min=0 _angle14.max=180
 	//% _angle15.min=0 _angle15.max=180
 	export function AsyncMoveServoMotor(_speed: number,  _angle13: number,  _angle14: number, _angle15: number): void {
+		if (_speed < 0) _speed = 0;
+		if (_speed > 20) _speed = 20;
+		if (_angle13 < 0) _angle13 = 0;
+		if (_angle13 > 180) _angle13 = 180;
+		if (_angle14 < 0) _angle14 = 0;
+		if (_angle14 > 180) _angle14 = 180;
+		if (_angle15 < 0) _angle15 = 0;
+		if (_angle15 > 180) _angle15 = 180;
 
 		const interval = Math.abs(_speed - 20) + 3;
 		// サーボモーターを動かす方向
