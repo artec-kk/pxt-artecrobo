@@ -2,6 +2,7 @@
   "artecrobo": "Control Package for ArtecRobo"
   ,"artecrobo.moveDCMotor|block": "DCモーターを動かすもしくは止める"
   ,"artecrobo.setSpeedDCMotor|block": "DCモーターの速度を指定する"
+  ,"artecrobo.moveServoMotorMax|block": "サーボモーターを指定の角度にする"
   ,"artecrobo.moveServoMotor|block": "サーボモーターを指定の速度で指定の角度にする"
   ,"artecrobo.AsyncMoveServoMotor|block": "複数のサーボモーターを同時に動かす"
 }

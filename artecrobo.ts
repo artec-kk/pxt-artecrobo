@@ -126,13 +126,37 @@ namespace artecrobo {
 	pins.servoWritePin(AnalogPin.P14, angleP14);
 	pins.servoWritePin(AnalogPin.P15, angleP15);
 
+	//% blockId=artec_move_servo_motor_max
+	//% block="move servo pin %_connector| to (degrees) %_angle"
+	//% _angle.min=0 _angle.max=180
+	export function moveServoMotorMax(_connector: connectorServoMotor, _angle: number): void {
+		if (_angle < 0)		{ _angle = 0; }
+		if (_angle > 180)	{ _angle = 180; }
+		switch (_connector) {
+			case connectorServoMotor.P13:
+				pins.servoWritePin(AnalogPin.P13, _angle);
+				angleP13 = _angle;
+				break;
+			case connectorServoMotor.P14:
+				pins.servoWritePin(AnalogPin.P14, _angle);
+				angleP14 = _angle;
+				break;
+			case connectorServoMotor.P15:
+				pins.servoWritePin(AnalogPin.P15, _angle);
+				angleP15 = _angle;
+				break;
+			default:
+				break;
+		}
+	}
+
 	//% blockId=artec_move_servo_motor
 	//% block="move servo pin %_connector| to (degrees) %_angle| speed: %_speed"
 	//% _angle.min=0 _angle.max=180
 	//% _speed.min=1 _speed.max= 20
 	export function moveServoMotor(_connector: connectorServoMotor, _angle: number, _speed: number): void {
-		if (_speed < 0)		{ _speed = 0; }
-		if (_speed > 1023)	{ _speed = 1023; }
+		if (_speed < 1)		{ _speed = 1; }
+		if (_speed > 20)	{ _speed = 20; }
 		if (_angle < 0)		{ _angle = 0; }
 		if (_angle > 180)	{ _angle = 180; }
 		switch (_connector) {
