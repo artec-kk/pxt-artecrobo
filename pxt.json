@@ -3,6 +3,9 @@
     "version": "0.1.0",
     "description": "Control ArtecRobo package, created by Artec.",
 	"license": "MIT",
+    "dependencies": {
+        "core": "*"
+    }
     "files": [
         "artecrobo.ts"
         ,"_locales/ja/ArtecRobo-jsdoc-strings.json"
@@ -11,7 +14,5 @@
     "testFiles": [
         "test-artecrobo.ts"
     ],
-    "dependencies": {
-        "core": "*"
-    }
+    "public": true
 }
