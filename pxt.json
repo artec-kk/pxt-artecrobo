@@ -5,7 +5,7 @@
 	"license": "MIT",
     "dependencies": {
         "core": "*"
-    }
+    },
     "files": [
         "artecrobo.ts"
         ,"_locales/ja/ArtecRobo-jsdoc-strings.json"
