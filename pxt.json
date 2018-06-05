@@ -13,6 +13,5 @@
     ],
     "testFiles": [
         "test-artecrobo.ts"
-    ],
-    "public": true
+    ]
 }
