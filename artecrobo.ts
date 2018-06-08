@@ -122,9 +122,9 @@ namespace artecrobo {
 	let angleP13 = 90;
 	let angleP14 = 90;
 	let angleP15 = 90;
-	// pins.servoWritePin(AnalogPin.P13, angleP13);
-	// pins.servoWritePin(AnalogPin.P14, angleP14);
-	// pins.servoWritePin(AnalogPin.P15, angleP15);
+	pins.servoWritePin(AnalogPin.P13, angleP13);
+	pins.servoWritePin(AnalogPin.P14, angleP14);
+	pins.servoWritePin(AnalogPin.P15, angleP15);
 
 	//% blockId=artec_move_servo_motor_max
 	//% block="move servo pin %_connector| to (degrees) %_angle"
