@@ -279,8 +279,8 @@ namespace artecrobo {
 		angleP13 = _angle13;
 		angleP14 = _angle14;
 		angleP15 = _angle15;
-		// if (diffP13 != 0) pins.servoWritePin(AnalogPin.P13, angleP13);
-		// if (diffP14 != 0) pins.servoWritePin(AnalogPin.P14, angleP14);
-		// if (diffP15 != 0) pins.servoWritePin(AnalogPin.P15, angleP15);
+		if (diffP13 != 0) pins.servoWritePin(AnalogPin.P13, angleP13);
+		if (diffP14 != 0) pins.servoWritePin(AnalogPin.P14, angleP14);
+		if (diffP15 != 0) pins.servoWritePin(AnalogPin.P15, angleP15);
 	}
 }
